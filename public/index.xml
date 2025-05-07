@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops 60 hrs</title>
+    <link>http://localhost:1313/khushiramsingh680/devops-60hrs/index.html</link>
+    <description>DevOps bridges the gap between development and operations, fostering a culture of collaboration and continuous improvement.&#xA;With automation at its core, DevOps accelerates software delivery while ensuring stability, scalability, and security.&#xA;Adopting DevOps practices empowers teams to innovate faster, respond to change efficiently, and deliver greater value to customers.&#xA;Table of Contents Getting Started VirtualBox, Vagrant, and Basics of Linux</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/khushiramsingh680/devops-60hrs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Day 01</title>
+      <link>http://localhost:1313/khushiramsingh680/devops-60hrs/part01/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/khushiramsingh680/devops-60hrs/part01/index.html</guid>
+      <description>Vagrant Guide Vagrant is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.&#xA;Installation 1. Install VirtualBox Vagrant requires a provider such as VirtualBox. Download and install it from VirtualBox Downloads.&#xA;2. Install Vagrant Download and install Vagrant from Vagrant Downloads.&#xA;Verify the installation:&#xA;vagrant --version Getting Started with Vagrant 1. Initialize a New Project To create a new Vagrant environment:</description>
+    </item>
+    <item>
+      <title>Day 01</title>
+      <link>http://localhost:1313/khushiramsingh680/devops-60hrs/part02/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/khushiramsingh680/devops-60hrs/part02/index.html</guid>
+      <description>Vagrant Guide Vagrant is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.&#xA;Installation 1. Install VirtualBox Vagrant requires a provider such as VirtualBox. Download and install it from VirtualBox Downloads.&#xA;2. Install Vagrant Download and install Vagrant from Vagrant Downloads.&#xA;Verify the installation:&#xA;vagrant --version Getting Started with Vagrant 1. Initialize a New Project To create a new Vagrant environment:</description>
+    </item>
+    <item>
+      <title>Day 03</title>
+      <link>http://localhost:1313/khushiramsingh680/devops-60hrs/part03/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/khushiramsingh680/devops-60hrs/part03/index.html</guid>
+      <description>Vagrant Guide Vagrant is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.&#xA;Installation 1. Install VirtualBox Vagrant requires a provider such as VirtualBox. Download and install it from VirtualBox Downloads.&#xA;2. Install Vagrant Download and install Vagrant from Vagrant Downloads.&#xA;Verify the installation:&#xA;vagrant --version Getting Started with Vagrant 1. Initialize a New Project To create a new Vagrant environment:</description>
+    </item>
+    <item>
+      <title>Day 04</title>
+      <link>http://localhost:1313/khushiramsingh680/devops-60hrs/part04/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/khushiramsingh680/devops-60hrs/part04/index.html</guid>
+      <description>Vagrant Guide Vagrant is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.&#xA;Installation 1. Install VirtualBox Vagrant requires a provider such as VirtualBox. Download and install it from VirtualBox Downloads.&#xA;2. Install Vagrant Download and install Vagrant from Vagrant Downloads.&#xA;Verify the installation:&#xA;vagrant --version Getting Started with Vagrant 1. Initialize a New Project To create a new Vagrant environment:</description>
+    </item>
+    <item>
+      <title>Day 05</title>
+      <link>http://localhost:1313/khushiramsingh680/devops-60hrs/part05/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/khushiramsingh680/devops-60hrs/part05/index.html</guid>
+      <description>Vagrant Guide Vagrant is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.&#xA;Installation 1. Install VirtualBox Vagrant requires a provider such as VirtualBox. Download and install it from VirtualBox Downloads.&#xA;2. Install Vagrant Download and install Vagrant from Vagrant Downloads.&#xA;Verify the installation:&#xA;vagrant --version Getting Started with Vagrant 1. Initialize a New Project To create a new Vagrant environment:</description>
+    </item>
+  </channel>
+</rss>

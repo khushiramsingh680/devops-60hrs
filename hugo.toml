@@ -1,0 +1,14 @@
+baseURL = 'https://github.com/khushiramsingh680/devops-60hrs'
+languageCode = 'en-us'
+title = 'Devops 60 hrs'
+theme = 'hugo-theme-relearn'
+relativeURLs = true
+canonifyURLs = true
+ignoreLogs = ['warning-goldmark-raw-html']
+[params]
+  # Relearn theme-specific parameters
+  colorTheme = "light"
+  layout = "wide"
+
+
+
