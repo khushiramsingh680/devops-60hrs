@@ -12,14 +12,14 @@
       <link>https://github.com/khushiramsingh680/devops-60hrs/part01/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part01/index.html</guid>
-      <description>Vagrant Guide Vagrant is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.&#xA;Installation 1. Install VirtualBox Vagrant requires a provider such as VirtualBox. Download and install it from VirtualBox Downloads.&#xA;2. Install Vagrant Download and install Vagrant from Vagrant Downloads.&#xA;Verify the installation:&#xA;vagrant --version Getting Started with Vagrant 1. Initialize a New Project To create a new Vagrant environment:</description>
+      <description>📦 Vagrant - Day 01 1. Introduction to Vagrant What is Vagrant? Vagrant is an open-source tool that allows you to build and manage virtualized development environments.&#xA;Benefits of Using Vagrant&#xA;Reproducibility Isolation Simplified provisioning Use Cases&#xA;DevOps automation Testing infrastructure Multi-VM environments 2. Installation Linux/Mac/Windows Step 1: Install VirtualBox&#xA;https://www.virtualbox.org/wiki/Downloads&#xA;Step 2: Install Vagrant&#xA;https://www.vagrantup.com/downloads&#xA;Verify Installation:&#xA;vagrant --version 3. Vagrantfile Basics Vagrant.configure(&#34;2&#34;) do |config| config.vm.box = &#34;hashicorp/bionic64&#34; config.vm.network &#34;private_network&#34;, type: &#34;dhcp&#34; config.vm.synced_folder &#34;./data&#34;, &#34;/vagrant_data&#34; config.vm.provider &#34;virtualbox&#34; do |vb| vb.memory = &#34;1024&#34; vb.cpus = 2 end end Key Options: config.vm.box: Defines the base box Networking: private, public, and port forwarding Synced folders: sharing between host and guest 4. Provisioning Methods:</description>
     </item>
     <item>
       <title>Day 02</title>
       <link>https://github.com/khushiramsingh680/devops-60hrs/part02/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part02/index.html</guid>
-      <description>Linux Basics Tutorial Introduction to Linux Linux is an open-source operating system widely used in servers, desktops, and embedded systems. It’s known for its stability, security, and versatility. Linux is based on the Unix operating system and provides a command-line interface (CLI) for users to interact with the system.&#xA;Basic Linux Commands Navigating the File System pwd&#xA;Prints the current working directory.&#xA;pwd ls&#xA;Lists files and directories in the current directory.</description>
+      <description>Linux Basics Commands 1. pwd (Print Working Directory) Usage: pwd&#xA;Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.&#xA;Example:&#xA;$ pwd /home/user 2. ls (List) Usage: ls&#xA;Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.</description>
     </item>
     <item>
       <title>Day 03</title>

@@ -1,90 +1,50 @@
 +++
 title = "Day 01"
-
 +++
 
-# Vagrant Guide
+## 📦 Vagrant - Day 01
 
-**Vagrant** is an open-source tool for building and managing virtualized environments. It provides easy-to-use workflows for working with different development environments.
+## 1. Introduction to Vagrant
+- **What is Vagrant?**
+  Vagrant is an open-source tool that allows you to build and manage virtualized development environments.
 
----
+- **Benefits of Using Vagrant**
+  - Reproducibility
+  - Isolation
+  - Simplified provisioning
 
-## Installation
-
-### 1. Install VirtualBox
-Vagrant requires a provider such as VirtualBox. Download and install it from [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads).
-
-### 2. Install Vagrant
-Download and install Vagrant from [Vagrant Downloads](https://www.vagrantup.com/downloads).
-
-Verify the installation:
-```bash
-vagrant --version
-```
+- **Use Cases**
+  - DevOps automation
+  - Testing infrastructure
+  - Multi-VM environments
 
 ---
 
-## Getting Started with Vagrant
+## 2. Installation
 
-### 1. Initialize a New Project
-To create a new Vagrant environment:
-```bash
-vagrant init bento/ubuntu-24.04 --box-version 202407.23.0
-```
+### Linux/Mac/Windows
 
-This command creates a `Vagrantfile` in your project directory, which describes the virtual machine configuration.
+- **Step 1**: Install VirtualBox  
+  https://www.virtualbox.org/wiki/Downloads
 
-### 2. Start the Virtual Machine
-Run the following to launch the VM:
-```bash
-vagrant up
-```
+- **Step 2**: Install Vagrant  
+  https://www.vagrantup.com/downloads
 
-### 3. SSH into the Virtual Machine
-Log into the virtual machine using SSH:
-```bash
-vagrant ssh
-```
-
-### 4. Shut Down the Virtual Machine
-When done, halt the VM:
-```bash
-vagrant halt
-```
+- **Verify Installation**:
+  ```bash
+  vagrant --version
+  ```
 
 ---
 
-## Common Commands
-
-| Command                   | Description                                   |
-|---------------------------|-----------------------------------------------|
-| `vagrant init`            | Initialize a new Vagrant environment.        |
-| `vagrant up`              | Start the Vagrant environment.               |
-| `vagrant ssh`             | SSH into the Vagrant machine.                |
-| `vagrant halt`            | Stop the virtual machine.                    |
-| `vagrant destroy`         | Remove the virtual machine.                  |
-| `vagrant status`          | Check the status of the virtual machine.     |
-| `vagrant provision`       | Apply changes in the Vagrantfile to the VM.  |
-| `vagrant reload`          | Restart the VM with updated configurations.  |
-
----
-
-## Basic `Vagrantfile` Example
-
-Below is a sample `Vagrantfile`:
+## 3. Vagrantfile Basics
 
 ```ruby
 Vagrant.configure("2") do |config|
-  # Define the box to use
   config.vm.box = "hashicorp/bionic64"
-
-  # Define the virtual machine's network
   config.vm.network "private_network", type: "dhcp"
-
-  # Share a folder between the host and the guest
   config.vm.synced_folder "./data", "/vagrant_data"
 
-  # Customize VM resources
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "1024"
     vb.cpus = 2
@@ -92,240 +52,154 @@ Vagrant.configure("2") do |config|
 end
 ```
 
+- **Key Options**:
+  - `config.vm.box`: Defines the base box
+  - Networking: private, public, and port forwarding
+  - Synced folders: sharing between host and guest
+
 ---
 
-## Additional Resources
+## 4. Provisioning
+
+- **Methods**:
+  - Shell Scripts
+  - Ansible
+  - Puppet
+  - Chef
 
-- [Vagrant Official Documentation](https://www.vagrantup.com/docs)
+- **Inline vs External**:
+  - Inline: Defined inside the `Vagrantfile`
+  - External: Separate script or playbook
 
+Example (inline shell provision):
+```ruby
+config.vm.provision "shell", inline: <<-SHELL
+  apt-get update
+  apt-get install -y nginx
+SHELL
+```
 
+---
 
+## 5. Basic Commands
 
+| Command                | Description                             |
+|------------------------|-----------------------------------------|
+| `vagrant init`         | Create a new Vagrantfile                |
+| `vagrant up`           | Start the VM                            |
+| `vagrant ssh`          | SSH into the VM                         |
+| `vagrant halt`         | Stop the VM                             |
+| `vagrant destroy`      | Delete the VM                           |
+| `vagrant status`       | Check VM status                         |
+| `vagrant box list`     | List installed boxes                    |
+| `vagrant box add`      | Add a new box                           |
+| `vagrant box remove`   | Remove a box                            |
 
+---
+
+## 6. Synced Folders
 
+- **Default**: `/vagrant` directory synced
+- **Custom Example**:
+  ```ruby
+  config.vm.synced_folder "./local", "/vm_data"
+  ```
 
+- **Types**: default, rsync, NFS
 
+---
 
+## 7. Networking
 
+- **Port Forwarding**
+  ```ruby
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  ```
 
+- **Private Network**
+  ```ruby
+  config.vm.network "private_network", ip: "192.168.33.10"
+  ```
 
+- **Public Network**
+  ```ruby
+  config.vm.network "public_network"
+  ```
 
+---
 
+## 8. Multi-Machine Environments
 
+Example:
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.define "web" do |web|
+    web.vm.box = "ubuntu/bionic64"
+  end
 
+  config.vm.define "db" do |db|
+    db.vm.box = "ubuntu/bionic64"
+  end
+end
+```
 
+Use cases:
+- Web + DB setup
+- HA/clustered configurations
 
+---
 
+## 9. Troubleshooting
 
+- **Networking Issues**:
+  - Check IP conflicts
+  - Restart networking service inside VM
 
+- **Provisioning Errors**:
+  - Verify scripts and paths
+  - Use external shell script for debugging
 
+- **Debug Mode**:
+  ```bash
+  vagrant up --debug
+  ```
 
+---
 
+## 10. Best Practices
 
+- Track `Vagrantfile` in version control
+- Use `.gitignore` to exclude `.vagrant/`
+- Use small, optimized base boxes
+- Clean up unused boxes:  
+  ```bash
+  vagrant box prune
+  ```
 
+---
 
+## Getting Started Quick Steps
 
+```bash
+# Step 1: Initialize
+vagrant init bento/ubuntu-24.04 --box-version 202407.23.0
 
+# Step 2: Start
+vagrant up
 
+# Step 3: SSH
+vagrant ssh
 
+# Step 4: Halt
+vagrant halt
+```
+### **--reprovision**
+- **Usage:** `vagrant up --provision`
+- **Explanation:** The `--reprovision` option is used with the `vagrant up` command to force the provisioning of the virtual machine, even if it has already been provisioned previously. This is useful if you want to apply changes to the provisioning scripts (such as updates or new configurations) without destroying and recreating the VM.
 
+---
 
+## Resources
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [Vagrant Documentation](https://www.vagrantup.com/docs)
+- [Vagrant Boxes](https://app.vagrantup.com/boxes/search)
