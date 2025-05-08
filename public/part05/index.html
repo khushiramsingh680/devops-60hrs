@@ -5,27 +5,31 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.4">
     <meta name="generator" content="Relearn 7.2.1+f1701957c30daae7cd133bec5a7968480563ce9f">
-    <meta name="description" content="Linux Performance Management">
+    <meta name="description" content="📦 What is Package Management? Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.
+🧰 1. Debian/Ubuntu: apt (Advanced Package Tool) Update package list: sudo apt update Upgrade packages: sudo apt upgrade Install a package: sudo apt install package-name Remove a package: sudo apt remove package-name Remove unused packages: sudo apt autoremove Search for a package: apt search nginx 🍱 2. RHEL/CentOS/Rocky: yum and dnf On RHEL 8&#43; and Fedora, use dnf instead of yum.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Day 05 :: Devops 60 hrs">
-    <meta name="twitter:description" content="Linux Performance Management">
+    <meta name="twitter:title" content="Linux Package Management: Day 05 :: Devops 60 hrs">
+    <meta name="twitter:description" content="📦 What is Package Management? Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.
+🧰 1. Debian/Ubuntu: apt (Advanced Package Tool) Update package list: sudo apt update Upgrade packages: sudo apt upgrade Install a package: sudo apt install package-name Remove a package: sudo apt remove package-name Remove unused packages: sudo apt autoremove Search for a package: apt search nginx 🍱 2. RHEL/CentOS/Rocky: yum and dnf On RHEL 8&#43; and Fedora, use dnf instead of yum.">
     <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/part05/index.html">
     <meta property="og:site_name" content="Devops 60 hrs">
-    <meta property="og:title" content="Day 05 :: Devops 60 hrs">
-    <meta property="og:description" content="Linux Performance Management">
+    <meta property="og:title" content="Linux Package Management: Day 05 :: Devops 60 hrs">
+    <meta property="og:description" content="📦 What is Package Management? Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.
+🧰 1. Debian/Ubuntu: apt (Advanced Package Tool) Update package list: sudo apt update Upgrade packages: sudo apt upgrade Install a package: sudo apt install package-name Remove a package: sudo apt remove package-name Remove unused packages: sudo apt autoremove Search for a package: apt search nginx 🍱 2. RHEL/CentOS/Rocky: yum and dnf On RHEL 8&#43; and Fedora, use dnf instead of yum.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Devops 60 hrs">
-    <meta itemprop="name" content="Day 05 :: Devops 60 hrs">
-    <meta itemprop="description" content="Linux Performance Management">
-    <meta itemprop="wordCount" content="3">
-    <title>Day 05 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746598184" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746598184" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746598184" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746598184" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746598184" rel="stylesheet">
-    <link href="../css/theme.min.css?1746598184" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746598184" rel="stylesheet" id="R-format-style">
+    <meta itemprop="name" content="Linux Package Management: Day 05 :: Devops 60 hrs">
+    <meta itemprop="description" content="📦 What is Package Management? Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.
+🧰 1. Debian/Ubuntu: apt (Advanced Package Tool) Update package list: sudo apt update Upgrade packages: sudo apt upgrade Install a package: sudo apt install package-name Remove a package: sudo apt remove package-name Remove unused packages: sudo apt autoremove Search for a package: apt search nginx 🍱 2. RHEL/CentOS/Rocky: yum and dnf On RHEL 8&#43; and Fedora, use dnf instead of yum.">
+    <meta itemprop="wordCount" content="780">
+    <title>Linux Package Management: Day 05 :: Devops 60 hrs</title>
+    <link href="../css/fontawesome-all.min.css?1746680681" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746680681" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1746680681" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746680681" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1746680681" rel="stylesheet">
+    <link href="../css/theme.min.css?1746680681" rel="stylesheet">
+    <link href="../css/format-html.min.css?1746680681" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -88,7 +92,97 @@
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
-    <li><a href="#linux-performance-management">Linux Performance Management</a></li>
+    <li><a href="#-what-is-package-management">📦 What is Package Management?</a></li>
+    <li><a href="#-1-debianubuntu-apt-advanced-package-tool">🧰 1. Debian/Ubuntu: <code>apt</code> (Advanced Package Tool)</a>
+      <ul>
+        <li><a href="#update-package-list">Update package list:</a></li>
+        <li><a href="#upgrade-packages">Upgrade packages:</a></li>
+        <li><a href="#install-a-package">Install a package:</a></li>
+        <li><a href="#remove-a-package">Remove a package:</a></li>
+        <li><a href="#remove-unused-packages">Remove unused packages:</a></li>
+        <li><a href="#search-for-a-package">Search for a package:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-2-rhelcentosrocky-yum-and-dnf">🍱 2. RHEL/CentOS/Rocky: <code>yum</code> and <code>dnf</code></a>
+      <ul>
+        <li><a href="#update-repository-cache">Update repository cache:</a></li>
+        <li><a href="#install-a-package-1">Install a package:</a></li>
+        <li><a href="#remove-a-package-1">Remove a package:</a></li>
+        <li><a href="#list-installed-packages">List installed packages:</a></li>
+        <li><a href="#search-packages">Search packages:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-3-using-rpm-directly">📁 3. Using <code>rpm</code> Directly</a>
+      <ul>
+        <li><a href="#install-from-rpm-file">Install from <code>.rpm</code> file:</a></li>
+        <li><a href="#upgrade-an-rpm">Upgrade an RPM:</a></li>
+        <li><a href="#remove-an-rpm">Remove an RPM:</a></li>
+        <li><a href="#query-installed-rpms">Query installed RPMs:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-4-opensuse-zypper">🧊 4. openSUSE: <code>zypper</code></a>
+      <ul>
+        <li><a href="#install-a-package-2">Install a package:</a></li>
+        <li><a href="#remove-a-package-2">Remove a package:</a></li>
+        <li><a href="#update-system">Update system:</a></li>
+        <li><a href="#search">Search:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-5-package-information">📜 5. Package Information</a>
+      <ul>
+        <li><a href="#show-detailed-package-info">Show detailed package info:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-6-cleaning-up">🗃️ 6. Cleaning Up</a></li>
+    <li><a href="#-7-gpg-keys-and-repositories">🛡️ 7. GPG Keys and Repositories</a>
+      <ul>
+        <li><a href="#add-a-gpg-key-apt">Add a GPG key (APT):</a></li>
+        <li><a href="#add-a-custom-repo-yumdnf">Add a custom repo (YUM/DNF):</a></li>
+      </ul>
+    </li>
+    <li><a href="#-summary">✅ Summary</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></a>
+      <ul>
+        <li><a href="#top--real-time-system-performance"><code>top</code> — real-time system performance</a></li>
+        <li><a href="#htop--enhanced-top-colorful-ui"><code>htop</code> — enhanced <code>top</code> (colorful UI)</a></li>
+        <li><a href="#vmstat--memory-processes-and-system-info"><code>vmstat</code> — memory, processes, and system info</a></li>
+        <li><a href="#free--memory-usage"><code>free</code> — memory usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#-2-disk-monitoring">💿 2. <strong>Disk Monitoring</strong></a>
+      <ul>
+        <li><a href="#df--disk-space-usage"><code>df</code> — disk space usage</a></li>
+        <li><a href="#du--directory-size"><code>du</code> — directory size</a></li>
+        <li><a href="#iostat--cpu-and-io-stats"><code>iostat</code> — CPU and I/O stats</a></li>
+      </ul>
+    </li>
+    <li><a href="#-3-network-monitoring">🌐 3. <strong>Network Monitoring</strong></a>
+      <ul>
+        <li><a href="#ip-a-or-ifconfig--ip-addresses"><code>ip a</code> or <code>ifconfig</code> — IP addresses</a></li>
+        <li><a href="#ss--socket-statistics-replacement-for-netstat"><code>ss</code> — socket statistics (replacement for netstat)</a></li>
+        <li><a href="#netstat--old-but-useful"><code>netstat</code> — old but useful</a></li>
+        <li><a href="#nload--network-bandwidth-usage"><code>nload</code> — network bandwidth usage</a></li>
+      </ul>
+    </li>
+    <li><a href="#-4-system-activity-reports">📈 4. <strong>System Activity Reports</strong></a>
+      <ul>
+        <li><a href="#sar--historical-performance-stats"><code>sar</code> — historical performance stats</a></li>
+        <li><a href="#enable-sar">Enable <code>sar</code>:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-5-process--service-monitoring">🔍 5. <strong>Process &amp; Service Monitoring</strong></a>
+      <ul>
+        <li><a href="#ps--process-status"><code>ps</code> — process status</a></li>
+        <li><a href="#pidstat--individual-process-usage"><code>pidstat</code> — individual process usage</a></li>
+        <li><a href="#systemctl--service-status"><code>systemctl</code> — service status</a></li>
+      </ul>
+    </li>
+    <li><a href="#-6-other-useful-tools">🧪 6. <strong>Other Useful Tools</strong></a></li>
+    <li><a href="#-summary-table">✅ Summary Table</a></li>
+    <li><a href="#-automating-monitoring-reports">🔁 Automating Monitoring Reports</a></li>
   </ul>
 </nav>
                 </div>
@@ -96,10 +190,10 @@
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Day 05</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Linux Package Management: Day 05</span><meta itemprop="position" content="1"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part04/index.html" title="Day 04 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part04/index.html" title="Linux Disk Management: Day 04 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
             </div>
@@ -121,9 +215,297 @@
   <header class="headline">
   </header>
 
-<h1 id="day-05">Day 05</h1>
+<h1 id="linux-package-management-day-05">Linux Package Management: Day 05</h1>
 
-<h2 id="linux-performance-management">Linux Performance Management</h2>
+<hr>
+<h2 id="-what-is-package-management">📦 What is Package Management?</h2>
+<p>Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.</p>
+<hr>
+<h2 id="-1-debianubuntu-apt-advanced-package-tool">🧰 1. Debian/Ubuntu: <code>apt</code> (Advanced Package Tool)</h2>
+<h3 id="update-package-list">Update package list:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update</span></span></code></pre></div>
+<h3 id="upgrade-packages">Upgrade packages:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt upgrade</span></span></code></pre></div>
+<h3 id="install-a-package">Install a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install package-name</span></span></code></pre></div>
+<h3 id="remove-a-package">Remove a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt remove package-name</span></span></code></pre></div>
+<h3 id="remove-unused-packages">Remove unused packages:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt autoremove</span></span></code></pre></div>
+<h3 id="search-for-a-package">Search for a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apt search nginx</span></span></code></pre></div>
+<hr>
+<h2 id="-2-rhelcentosrocky-yum-and-dnf">🍱 2. RHEL/CentOS/Rocky: <code>yum</code> and <code>dnf</code></h2>
+<blockquote>
+<p>On RHEL 8+ and Fedora, use <code>dnf</code> instead of <code>yum</code>.</p>
+</blockquote>
+<h3 id="update-repository-cache">Update repository cache:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf makecache</span></span></code></pre></div>
+<h3 id="install-a-package-1">Install a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf install httpd</span></span></code></pre></div>
+<h3 id="remove-a-package-1">Remove a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf remove httpd</span></span></code></pre></div>
+<h3 id="list-installed-packages">List installed packages:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dnf list installed</span></span></code></pre></div>
+<h3 id="search-packages">Search packages:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dnf search nginx</span></span></code></pre></div>
+<hr>
+<h2 id="-3-using-rpm-directly">📁 3. Using <code>rpm</code> Directly</h2>
+<h3 id="install-from-rpm-file">Install from <code>.rpm</code> file:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rpm -ivh package.rpm</span></span></code></pre></div>
+<h3 id="upgrade-an-rpm">Upgrade an RPM:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rpm -Uvh package.rpm</span></span></code></pre></div>
+<h3 id="remove-an-rpm">Remove an RPM:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rpm -e package-name</span></span></code></pre></div>
+<h3 id="query-installed-rpms">Query installed RPMs:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rpm -qa | grep nginx</span></span></code></pre></div>
+<hr>
+<h2 id="-4-opensuse-zypper">🧊 4. openSUSE: <code>zypper</code></h2>
+<h3 id="install-a-package-2">Install a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo zypper install vim</span></span></code></pre></div>
+<h3 id="remove-a-package-2">Remove a package:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo zypper remove vim</span></span></code></pre></div>
+<h3 id="update-system">Update system:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo zypper update</span></span></code></pre></div>
+<h3 id="search">Search:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zypper search nginx</span></span></code></pre></div>
+<hr>
+<h2 id="-5-package-information">📜 5. Package Information</h2>
+<h3 id="show-detailed-package-info">Show detailed package info:</h3>
+<p><strong>APT:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>apt show curl</span></span></code></pre></div>
+<p><strong>DNF:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dnf info curl</span></span></code></pre></div>
+<p><strong>RPM:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rpm -qi curl</span></span></code></pre></div>
+<hr>
+<h2 id="-6-cleaning-up">🗃️ 6. Cleaning Up</h2>
+<p><strong>APT:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt clean
+</span></span><span style="display:flex;"><span>sudo apt autoremove</span></span></code></pre></div>
+<p><strong>DNF/YUM:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dnf clean all</span></span></code></pre></div>
+<hr>
+<h2 id="-7-gpg-keys-and-repositories">🛡️ 7. GPG Keys and Repositories</h2>
+<h3 id="add-a-gpg-key-apt">Add a GPG key (APT):</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget -qO - https://example.com/key.gpg | sudo apt-key add -</span></span></code></pre></div>
+<h3 id="add-a-custom-repo-yumdnf">Add a custom repo (YUM/DNF):</h3>
+<p>Create file in <code>/etc/yum.repos.d/custom.repo</code>:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[custom-repo]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">Custom Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">baseurl</span><span style="color:#f92672">=</span><span style="color:#e6db74">http://example.com/repo/</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gpgcheck</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span></span></span></code></pre></div>
+<hr>
+<h2 id="-summary">✅ Summary</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Distros</th>
+          <th>Command Examples</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>APT</td>
+          <td>Debian, Ubuntu</td>
+          <td><code>apt install</code>, <code>apt update</code>, <code>apt remove</code></td>
+      </tr>
+      <tr>
+          <td>YUM</td>
+          <td>RHEL 7, CentOS 7</td>
+          <td><code>yum install</code>, <code>yum update</code>, <code>yum remove</code></td>
+      </tr>
+      <tr>
+          <td>DNF</td>
+          <td>RHEL 8+, Fedora</td>
+          <td><code>dnf install</code>, <code>dnf upgrade</code>, <code>dnf clean</code></td>
+      </tr>
+      <tr>
+          <td>RPM</td>
+          <td>All RPM-based distros</td>
+          <td><code>rpm -ivh</code>, <code>rpm -e</code>, <code>rpm -qa</code></td>
+      </tr>
+      <tr>
+          <td>Zypper</td>
+          <td>openSUSE</td>
+          <td><code>zypper install</code>, <code>zypper remove</code>, <code>update</code></td>
+      </tr>
+  </tbody>
+</table>
+<p>Linux package management ensures reliable and secure software deployment.</p>
+<p>+++
+title = &ldquo;Day 08: Linux Monitoring&rdquo;
+date = 2025-05-07T18:00:00Z
+draft = false
+description = &ldquo;Learn essential Linux monitoring tools and commands to analyze system performance.&rdquo;
+author = &ldquo;Nirpendra Kumar&rdquo;
+tags = [&ldquo;linux&rdquo;, &ldquo;monitoring&rdquo;, &ldquo;performance&rdquo;, &ldquo;devops&rdquo;]
+categories = [&ldquo;Linux&rdquo;, &ldquo;Monitoring&rdquo;]
+slug = &ldquo;day-08-linux-monitoring&rdquo;
+url = &ldquo;/tutorials/linux/day-08/&rdquo;
+weight = 8
+toc = true
+summary = &ldquo;Track CPU, memory, disk, and network usage using Linux command-line tools.&rdquo;
+image = &ldquo;images/linux-monitoring.png&rdquo;
+type = &ldquo;post&rdquo;
+layout = &ldquo;single&rdquo;
+series = [&ldquo;Linux Basics&rdquo;]
+duration = &ldquo;1.5h&rdquo;
++++</p>
+<h1 id="-day-08-linux-monitoring">📊 Day 08: Linux Monitoring</h1>
+<p>Monitoring Linux is critical for performance tuning, capacity planning, and troubleshooting. Below are essential CLI tools for real-time and historical system monitoring.</p>
+<hr>
+<h2 id="-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></h2>
+<h3 id="top--real-time-system-performance"><code>top</code> — real-time system performance</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>top</span></span></code></pre></div>
+<ul>
+<li>Press <code>M</code> to sort by memory.</li>
+<li>Press <code>P</code> to sort by CPU usage.</li>
+</ul>
+<h3 id="htop--enhanced-top-colorful-ui"><code>htop</code> — enhanced <code>top</code> (colorful UI)</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>htop</span></span></code></pre></div>
+<blockquote>
+<p>Install via: <code>sudo apt install htop</code> or <code>sudo dnf install htop</code></p>
+</blockquote>
+<h3 id="vmstat--memory-processes-and-system-info"><code>vmstat</code> — memory, processes, and system info</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vmstat <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">5</span></span></span></code></pre></div>
+<ul>
+<li><code>1 5</code>: sample every second for 5 times</li>
+</ul>
+<h3 id="free--memory-usage"><code>free</code> — memory usage</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>free -h</span></span></code></pre></div>
+<hr>
+<h2 id="-2-disk-monitoring">💿 2. <strong>Disk Monitoring</strong></h2>
+<h3 id="df--disk-space-usage"><code>df</code> — disk space usage</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>df -h</span></span></code></pre></div>
+<h3 id="du--directory-size"><code>du</code> — directory size</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>du -sh /var/log</span></span></code></pre></div>
+<h3 id="iostat--cpu-and-io-stats"><code>iostat</code> — CPU and I/O stats</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>iostat -xz <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">3</span></span></span></code></pre></div>
+<blockquote>
+<p>Install via: <code>sudo apt install sysstat</code> or <code>sudo dnf install sysstat</code></p>
+</blockquote>
+<hr>
+<h2 id="-3-network-monitoring">🌐 3. <strong>Network Monitoring</strong></h2>
+<h3 id="ip-a-or-ifconfig--ip-addresses"><code>ip a</code> or <code>ifconfig</code> — IP addresses</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip a</span></span></code></pre></div>
+<h3 id="ss--socket-statistics-replacement-for-netstat"><code>ss</code> — socket statistics (replacement for netstat)</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ss -tuln</span></span></code></pre></div>
+<ul>
+<li><code>-tuln</code>: TCP/UDP listening sockets without resolving names</li>
+</ul>
+<h3 id="netstat--old-but-useful"><code>netstat</code> — old but useful</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>netstat -plntu</span></span></code></pre></div>
+<blockquote>
+<p>Might require <code>net-tools</code> package.</p>
+</blockquote>
+<h3 id="nload--network-bandwidth-usage"><code>nload</code> — network bandwidth usage</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nload</span></span></code></pre></div>
+<blockquote>
+<p>Install: <code>sudo apt install nload</code> or <code>sudo dnf install nload</code></p>
+</blockquote>
+<hr>
+<h2 id="-4-system-activity-reports">📈 4. <strong>System Activity Reports</strong></h2>
+<h3 id="sar--historical-performance-stats"><code>sar</code> — historical performance stats</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sar -u <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">3</span></span></span></code></pre></div>
+<blockquote>
+<p>Collects CPU usage every 1 second, 3 times.</p>
+</blockquote>
+<h3 id="enable-sar">Enable <code>sar</code>:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo systemctl enable sysstat
+</span></span><span style="display:flex;"><span>sudo systemctl start sysstat</span></span></code></pre></div>
+<hr>
+<h2 id="-5-process--service-monitoring">🔍 5. <strong>Process &amp; Service Monitoring</strong></h2>
+<h3 id="ps--process-status"><code>ps</code> — process status</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ps aux | grep nginx</span></span></code></pre></div>
+<h3 id="pidstat--individual-process-usage"><code>pidstat</code> — individual process usage</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pidstat -p &lt;PID&gt;</span></span></code></pre></div>
+<h3 id="systemctl--service-status"><code>systemctl</code> — service status</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl status nginx</span></span></code></pre></div>
+<hr>
+<h2 id="-6-other-useful-tools">🧪 6. <strong>Other Useful Tools</strong></h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Description</th>
+          <th>Install Command</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>iotop</code></td>
+          <td>Show I/O usage per process</td>
+          <td><code>sudo apt install iotop</code></td>
+      </tr>
+      <tr>
+          <td><code>glances</code></td>
+          <td>All-in-one monitoring dashboard</td>
+          <td><code>sudo apt install glances</code></td>
+      </tr>
+      <tr>
+          <td><code>atop</code></td>
+          <td>Advanced top-like monitor</td>
+          <td><code>sudo apt install atop</code></td>
+      </tr>
+      <tr>
+          <td><code>dstat</code></td>
+          <td>Realtime resource monitor</td>
+          <td><code>sudo apt install dstat</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-summary-table">✅ Summary Table</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Resource</th>
+          <th>Command</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CPU</td>
+          <td><code>top</code>, <code>htop</code>, <code>sar</code></td>
+          <td>Real-time and historical usage</td>
+      </tr>
+      <tr>
+          <td>Memory</td>
+          <td><code>free</code>, <code>vmstat</code></td>
+          <td>RAM and swap</td>
+      </tr>
+      <tr>
+          <td>Disk</td>
+          <td><code>df</code>, <code>du</code>, <code>iostat</code></td>
+          <td>Disk space and I/O</td>
+      </tr>
+      <tr>
+          <td>Network</td>
+          <td><code>ss</code>, <code>netstat</code>, <code>nload</code></td>
+          <td>Connections &amp; bandwidth</td>
+      </tr>
+      <tr>
+          <td>Processes</td>
+          <td><code>ps</code>, <code>pidstat</code></td>
+          <td>Process info and PID usage</td>
+      </tr>
+      <tr>
+          <td>Services</td>
+          <td><code>systemctl</code></td>
+          <td>Service status</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-automating-monitoring-reports">🔁 Automating Monitoring Reports</h2>
+<p>You can use <code>cron</code> to schedule logs and save stats:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>*/5 * * * * sar -u <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">5</span> &gt;&gt; /var/log/cpu_usage.log</span></span></code></pre></div>
+<hr>
+<p>Linux monitoring is essential to keep your systems healthy and responsive. Regular usage of these tools helps you stay ahead of issues before they impact users.</p>
 
   <footer class="footline">
   </footer>
@@ -140,7 +522,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746598184";
+          window.index_js_url="../searchindex.en.js?1746680681";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -153,12 +535,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746598184" defer></script>
-        <script src="../js/search.js?1746598184" defer></script>
+        <script src="../js/auto-complete.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.min.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1746680681" defer></script>
+        <script src="../js/search.js?1746680681" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -169,11 +551,11 @@ Devops 60 hrs
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
-            <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Day 01</a></li>
-            <li class="" data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Day 02</a></li>
-            <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">Day 03</a></li>
-            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">Day 04</a></li>
-            <li class="active " data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Day 05</a></li>
+            <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
+            <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Vagrant: Day 01</a></li>
+            <li class="" data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Linux Basics: Day 02</a></li>
+            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">Linux Disk Management: Day 04</a></li>
+            <li class="active " data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Linux Package Management: Day 05</a></li>
           </ul>
         </div>
     
@@ -227,8 +609,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746598184" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746598184" defer></script>
-    <script src="../js/theme.js?1746598184" defer></script>
+    <script src="../js/clipboard.min.js?1746680681" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1746680681" defer></script>
+    <script src="../js/theme.js?1746680681" defer></script>
   </body>
 </html>

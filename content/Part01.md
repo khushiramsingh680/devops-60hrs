@@ -1,5 +1,7 @@
 +++
-title = "Day 01"
+title = "Vagrant: Day 01"
+weight = 1
+duration = "1.5h"
 +++
 
 ## 📦 Vagrant - Day 01

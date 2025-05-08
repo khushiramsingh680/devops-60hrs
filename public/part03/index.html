@@ -5,27 +5,35 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.4">
     <meta name="generator" content="Relearn 7.2.1+f1701957c30daae7cd133bec5a7968480563ce9f">
-    <meta name="description" content="Linux Permission Management Linux Disk Management">
+    <meta name="description" content="User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.
+1. useradd (Create a New User) Usage: useradd &lt;username&gt;
+Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Day 03 :: Devops 60 hrs">
-    <meta name="twitter:description" content="Linux Permission Management Linux Disk Management">
+    <meta name="twitter:title" content="User, Group and Permissions: Day 03 :: Devops 60 hrs">
+    <meta name="twitter:description" content="User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.
+1. useradd (Create a New User) Usage: useradd &lt;username&gt;
+Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.">
     <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/part03/index.html">
     <meta property="og:site_name" content="Devops 60 hrs">
-    <meta property="og:title" content="Day 03 :: Devops 60 hrs">
-    <meta property="og:description" content="Linux Permission Management Linux Disk Management">
+    <meta property="og:title" content="User, Group and Permissions: Day 03 :: Devops 60 hrs">
+    <meta property="og:description" content="User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.
+1. useradd (Create a New User) Usage: useradd &lt;username&gt;
+Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Devops 60 hrs">
-    <meta itemprop="name" content="Day 03 :: Devops 60 hrs">
-    <meta itemprop="description" content="Linux Permission Management Linux Disk Management">
-    <meta itemprop="wordCount" content="6">
-    <title>Day 03 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746598184" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746598184" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746598184" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746598184" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746598184" rel="stylesheet">
-    <link href="../css/theme.min.css?1746598184" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746598184" rel="stylesheet" id="R-format-style">
+    <meta itemprop="name" content="User, Group and Permissions: Day 03 :: Devops 60 hrs">
+    <meta itemprop="description" content="User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.
+1. useradd (Create a New User) Usage: useradd &lt;username&gt;
+Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.">
+    <meta itemprop="wordCount" content="1268">
+    <title>User, Group and Permissions: Day 03 :: Devops 60 hrs</title>
+    <link href="../css/fontawesome-all.min.css?1746680681" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746680681" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1746680681" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746680681" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1746680681" rel="stylesheet">
+    <link href="../css/theme.min.css?1746680681" rel="stylesheet">
+    <link href="../css/format-html.min.css?1746680681" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -88,8 +96,55 @@
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
+    <li><a href="#user-management-in-rocky-linux-9">User Management in Rocky Linux 9</a></li>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#1-useradd-create-a-new-user">1. <code>useradd</code> (Create a New User)</a></li>
+    <li><a href="#2-usermod-modify-user-account">2. <code>usermod</code> (Modify User Account)</a></li>
+    <li><a href="#3-userdel-delete-a-user-account">3. <code>userdel</code> (Delete a User Account)</a></li>
+    <li><a href="#4-passwd-change-user-password">4. <code>passwd</code> (Change User Password)</a></li>
+    <li><a href="#5-groupadd-create-a-group">5. <code>groupadd</code> (Create a Group)</a></li>
+    <li><a href="#6-groupdel-delete-a-group">6. <code>groupdel</code> (Delete a Group)</a></li>
+    <li><a href="#7-gpasswd-administer-group-passwords">7. <code>gpasswd</code> (Administer Group Passwords)</a></li>
+    <li><a href="#8-id-display-user-and-group-information">8. <code>id</code> (Display User and Group Information)</a></li>
+    <li><a href="#9-groups-display-group-memberships">9. <code>groups</code> (Display Group Memberships)</a></li>
+    <li><a href="#10-chown-change-ownership-of-filesdirectories">10. <code>chown</code> (Change Ownership of Files/Directories)</a></li>
+    <li><a href="#11-chgrp-change-group-ownership-of-filesdirectories">11. <code>chgrp</code> (Change Group Ownership of Files/Directories)</a></li>
+    <li><a href="#12-whoami-current-user">12. <code>whoami</code> (Current User)</a></li>
+    <li><a href="#13-w-who-is-logged-in">13. <code>w</code> (Who Is Logged In)</a></li>
+    <li><a href="#14-last-display-last-logins">14. <code>last</code> (Display Last Logins)</a></li>
+    <li><a href="#15-su-switch-user">15. <code>su</code> (Switch User)</a></li>
+    <li><a href="#16-sudo-execute-a-command-as-another-user">16. <code>sudo</code> (Execute a Command as Another User)</a></li>
+    <li><a href="#17-etcpasswd-user-account-information">17. <code>/etc/passwd</code> (User Account Information)</a></li>
+    <li><a href="#18-etcshadow-user-password-information">18. <code>/etc/shadow</code> (User Password Information)</a></li>
     <li><a href="#linux-permission-management">Linux Permission Management</a></li>
-    <li><a href="#linux-disk-management">Linux Disk Management</a></li>
+    <li><a href="#-basic-concepts">🧱 Basic Concepts</a>
+      <ul>
+        <li><a href="#permission-types">Permission Types</a></li>
+      </ul>
+    </li>
+    <li><a href="#-viewing-permissions">🔍 Viewing Permissions</a>
+      <ul>
+        <li><a href="#2-numeric-octal-mode">2. Numeric (Octal) Mode</a></li>
+      </ul>
+    </li>
+    <li><a href="#-what-are-permissions-in-linux">🔍 What are Permissions in Linux?</a></li>
+    <li><a href="#-viewing-permissions-1">👁️ Viewing Permissions</a></li>
+    <li><a href="#-changing-permissions-with-chmod">✏️ Changing Permissions with <code>chmod</code></a>
+      <ul>
+        <li><a href="#1-symbolic-mode">1. Symbolic Mode</a></li>
+        <li><a href="#2-numeric-octal-mode-1">2. Numeric (Octal) Mode</a></li>
+        <li><a href="#recursive-change">Recursive Change</a></li>
+      </ul>
+    </li>
+    <li><a href="#-special-permissions">🔐 Special Permissions</a>
+      <ul>
+        <li><a href="#1-setuid-set-user-id">1. Setuid (Set User ID)</a></li>
+        <li><a href="#2-setgid-set-group-id">2. Setgid (Set Group ID)</a></li>
+        <li><a href="#3-sticky-bit">3. Sticky Bit</a></li>
+      </ul>
+    </li>
+    <li><a href="#-special-permissions-with-octal">🧪 Special Permissions with Octal</a></li>
+    <li><a href="#-summary">📘 Summary</a></li>
   </ul>
 </nav>
                 </div>
@@ -97,12 +152,12 @@
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Day 03</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">User, Group and Permissions: Day 03</span><meta itemprop="position" content="1"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part02/index.html" title="Day 02 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../index.html" title="Devops 60 hrs (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part04/index.html" title="Day 04 (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part01/index.html" title="Vagrant: Day 01 (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -122,10 +177,495 @@
   <header class="headline">
   </header>
 
-<h1 id="day-03">Day 03</h1>
+<h1 id="user-group-and-permissions-day-03">User, Group and Permissions: Day 03</h1>
 
+<h2 id="user-management-in-rocky-linux-9">User Management in Rocky Linux 9</h2>
+<h2 id="overview">Overview</h2>
+<p>User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like <code>useradd</code>, <code>usermod</code>, <code>userdel</code>, and <code>groupadd</code>.</p>
+<hr>
+<h2 id="1-useradd-create-a-new-user">1. <code>useradd</code> (Create a New User)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>useradd &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>useradd</code> command is used to create a new user account. The command creates the user&rsquo;s home directory and sets up default user configuration files.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo useradd -m john</span></span></code></pre></div>
+<ul>
+<li><code>-m</code>: Creates the home directory for the user.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="2-usermod-modify-user-account">2. <code>usermod</code> (Modify User Account)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>usermod [options] &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>usermod</code> command modifies an existing user account. You can change user details like the home directory, username, user ID, group membership, etc.</p>
+<p><strong>Examples:</strong></p>
+<ul>
+<li>
+<p>Change user’s home directory:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo usermod -d /home/john_doe john</span></span></code></pre></div>
+</li>
+<li>
+<p>Add a user to a group:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo usermod -aG sudo john</span></span></code></pre></div>
+<ul>
+<li><code>-aG</code>: Adds the user to the specified group without removing them from other groups.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-userdel-delete-a-user-account">3. <code>userdel</code> (Delete a User Account)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>userdel [options] &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>userdel</code> command removes a user account from the system. It can also remove the user&rsquo;s home directory and mail spool if specified.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo userdel -r john</span></span></code></pre></div>
+<ul>
+<li><code>-r</code>: Removes the user’s home directory and mail spool along with the user.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="4-passwd-change-user-password">4. <code>passwd</code> (Change User Password)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>passwd &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>passwd</code> command is used to change a user&rsquo;s password. If no username is specified, it changes the current user&rsquo;s password.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo passwd john</span></span></code></pre></div>
+<ul>
+<li>Prompts you to enter a new password for the user <code>john</code>.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="5-groupadd-create-a-group">5. <code>groupadd</code> (Create a Group)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>groupadd &lt;groupname&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>groupadd</code> command creates a new group on the system.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo groupadd developers</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="6-groupdel-delete-a-group">6. <code>groupdel</code> (Delete a Group)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>groupdel &lt;groupname&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>groupdel</code> command deletes a specified group from the system. Note that it does not remove users assigned to the group.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo groupdel developers</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="7-gpasswd-administer-group-passwords">7. <code>gpasswd</code> (Administer Group Passwords)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>gpasswd &lt;groupname&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> This command is used to administer group passwords. It allows you to assign a password to a group, which can be used for privileged group access.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo gpasswd developers</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="8-id-display-user-and-group-information">8. <code>id</code> (Display User and Group Information)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>id &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>id</code> command displays the user’s UID (User ID), GID (Group ID), and group memberships.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ id john</span></span></code></pre></div>
+<ul>
+<li>Displays information such as:
+<div class="highlight wrap-code"><pre tabindex="0"><code>uid=1001(john) gid=1001(john) groups=1001(john),10(wheel)</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="9-groups-display-group-memberships">9. <code>groups</code> (Display Group Memberships)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>groups &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>groups</code> command shows the groups to which a user belongs.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ groups john</span></span></code></pre></div>
+<ul>
+<li>Output might be:
+<div class="highlight wrap-code"><pre tabindex="0"><code>john : john wheel</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="10-chown-change-ownership-of-filesdirectories">10. <code>chown</code> (Change Ownership of Files/Directories)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>chown [options] &lt;user&gt;:&lt;group&gt; &lt;file&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>chown</code> command is used to change the ownership of a file or directory. It can be used to assign files to a user and a group.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo chown john:developers /home/john/file.txt</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="11-chgrp-change-group-ownership-of-filesdirectories">11. <code>chgrp</code> (Change Group Ownership of Files/Directories)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>chgrp &lt;groupname&gt; &lt;file&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>chgrp</code> command changes the group ownership of a file or directory.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo chgrp developers /home/john/file.txt</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="12-whoami-current-user">12. <code>whoami</code> (Current User)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>whoami</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the username of the current user.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ whoami
+</span></span><span style="display:flex;"><span>john</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="13-w-who-is-logged-in">13. <code>w</code> (Who Is Logged In)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>w</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays who is logged in and what they are doing.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ w</span></span></code></pre></div>
+<ul>
+<li>Example output:
+<div class="highlight wrap-code"><pre tabindex="0"><code>11:42:43 up 4 days,  3:34,  2 users,  load average: 0.00, 0.01, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+john     pts/0    :0               09:23    3.00s  0.01s  0.01s w</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="14-last-display-last-logins">14. <code>last</code> (Display Last Logins)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>last</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the login history for users, showing when and where users last logged in.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ last</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="15-su-switch-user">15. <code>su</code> (Switch User)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>su - &lt;username&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>su</code> (substitute user) command allows you to switch to another user account. If no username is provided, it defaults to the root user.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ su - john</span></span></code></pre></div>
+<ul>
+<li>Switches to the <code>john</code> user account.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="16-sudo-execute-a-command-as-another-user">16. <code>sudo</code> (Execute a Command as Another User)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>sudo &lt;command&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>sudo</code> command allows users to execute commands with elevated privileges, typically as the root user. Users need to be part of the <code>sudoers</code> group to use <code>sudo</code>.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo apt update</span></span></code></pre></div>
+</li>
+</ul>
+<hr>
+<h2 id="17-etcpasswd-user-account-information">17. <code>/etc/passwd</code> (User Account Information)</h2>
+<ul>
+<li>
+<p><strong>Explanation:</strong> This file contains basic information about all user accounts on the system, including their username, UID, GID, home directory, and login shell.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat /etc/passwd</span></span></code></pre></div>
+<ul>
+<li>Example entry:
+<div class="highlight wrap-code"><pre tabindex="0"><code>john:x:1001:1001:John Doe:/home/john:/bin/bash</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="18-etcshadow-user-password-information">18. <code>/etc/shadow</code> (User Password Information)</h2>
+<ul>
+<li>
+<p><strong>Explanation:</strong> This file stores user password information in an encrypted format. Only privileged users (like root) can read this file.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat /etc/shadow</span></span></code></pre></div>
+<ul>
+<li>Example entry:
+<div class="highlight wrap-code"><pre tabindex="0"><code>john:$6$8DF....:18011:0:99999:7:::</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h2 id="linux-permission-management">Linux Permission Management</h2>
-<h2 id="linux-disk-management">Linux Disk Management</h2>
+<p>In Linux, <strong>file and directory permissions</strong> define who can read, write, or execute a file. These permissions are crucial for system security and multi-user environments.</p>
+<hr>
+<h2 id="-basic-concepts">🧱 Basic Concepts</h2>
+<p>Every file/directory has:</p>
+<ul>
+<li><strong>Owner</strong>: User who owns the file</li>
+<li><strong>Group</strong>: Group associated with the file</li>
+<li><strong>Others</strong>: Everyone else</li>
+</ul>
+<h3 id="permission-types">Permission Types</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Symbol</th>
+          <th>Meaning</th>
+          <th>Applies to</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>r</code></td>
+          <td>Read</td>
+          <td>File: view content<!-- raw HTML omitted -->Directory: list files</td>
+      </tr>
+      <tr>
+          <td><code>w</code></td>
+          <td>Write</td>
+          <td>File: modify content<!-- raw HTML omitted -->Directory: add/remove files</td>
+      </tr>
+      <tr>
+          <td><code>x</code></td>
+          <td>Execute</td>
+          <td>File: run as a program<!-- raw HTML omitted -->Directory: enter directory</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-viewing-permissions">🔍 Viewing Permissions</h2>
+<p>Use <code>ls -l</code>:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -l file.txt
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> user group <span style="color:#ae81ff">1024</span> May  <span style="color:#ae81ff">7</span> 12:00 file.txt</span></span></code></pre></div>
+<h3 id="2-numeric-octal-mode">2. Numeric (Octal) Mode</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Octal</th>
+          <th>Binary</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>7</td>
+          <td>111</td>
+          <td>rwx</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>110</td>
+          <td>rw-</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>101</td>
+          <td>r-x</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>100</td>
+          <td>r&ndash;</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>000</td>
+          <td>&mdash;</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="-what-are-permissions-in-linux">🔍 What are Permissions in Linux?</h2>
+<p>Linux is a multi-user operating system. Every file or directory is associated with <strong>access permissions</strong> for:</p>
+<ul>
+<li><strong>User (u)</strong> – the owner</li>
+<li><strong>Group (g)</strong> – users in the same group</li>
+<li><strong>Others (o)</strong> – all other users</li>
+</ul>
+<p>Each can have three types of permissions:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Symbol</th>
+          <th>Permission</th>
+          <th>File Meaning</th>
+          <th>Directory Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>r</code></td>
+          <td>Read</td>
+          <td>View contents</td>
+          <td>List files</td>
+      </tr>
+      <tr>
+          <td><code>w</code></td>
+          <td>Write</td>
+          <td>Modify contents</td>
+          <td>Add/remove files</td>
+      </tr>
+      <tr>
+          <td><code>x</code></td>
+          <td>Execute</td>
+          <td>Run as program</td>
+          <td>Enter (<code>cd</code>) the folder</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-viewing-permissions-1">👁️ Viewing Permissions</h2>
+<p>Use <code>ls -l</code> to view permissions:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -l file.txt
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> user group <span style="color:#ae81ff">1024</span> May  <span style="color:#ae81ff">7</span> 12:00 file.txt</span></span></code></pre></div>
+<p>Breakdown:</p>
+<ul>
+<li><code>-</code> → file type (<code>d</code> for directory)</li>
+<li><code>rw-</code> → user can read/write</li>
+<li><code>r--</code> → group can read</li>
+<li><code>r--</code> → others can read</li>
+</ul>
+<hr>
+<h2 id="-changing-permissions-with-chmod">✏️ Changing Permissions with <code>chmod</code></h2>
+<p>You can change permissions in two ways:</p>
+<h3 id="1-symbolic-mode">1. Symbolic Mode</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod u+x script.sh       <span style="color:#75715e"># Add execute for user</span>
+</span></span><span style="display:flex;"><span>chmod g-w file.txt        <span style="color:#75715e"># Remove write for group</span>
+</span></span><span style="display:flex;"><span>chmod o<span style="color:#f92672">=</span>r file.txt        <span style="color:#75715e"># Set read-only for others</span>
+</span></span><span style="display:flex;"><span>chmod a+x deploy.sh       <span style="color:#75715e"># Add execute for all (user, group, others)</span></span></span></code></pre></div>
+<h3 id="2-numeric-octal-mode-1">2. Numeric (Octal) Mode</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Octal</th>
+          <th>Binary</th>
+          <th>Permission</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>7</td>
+          <td>111</td>
+          <td>rwx</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>110</td>
+          <td>rw-</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>101</td>
+          <td>r-x</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>100</td>
+          <td>r&ndash;</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>000</td>
+          <td>&mdash;</td>
+      </tr>
+  </tbody>
+</table>
+<p>Examples:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">755</span> script.sh       <span style="color:#75715e"># rwxr-xr-x</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">644</span> file.txt        <span style="color:#75715e"># rw-r--r--</span></span></span></code></pre></div>
+<h3 id="recursive-change">Recursive Change</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod -R <span style="color:#ae81ff">755</span> /path/to/dir</span></span></code></pre></div>
+<hr>
+<h2 id="-special-permissions">🔐 Special Permissions</h2>
+<p>Linux supports <strong>special permissions</strong> for advanced access control.</p>
+<h3 id="1-setuid-set-user-id">1. Setuid (Set User ID)</h3>
+<ul>
+<li>When set on an executable, the process runs as the <strong>file owner</strong>.</li>
+<li>Represented by <code>s</code> in the user field (<code>rws</code>).</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod u+s /usr/bin/somebinary</span></span></code></pre></div>
+<h3 id="2-setgid-set-group-id">2. Setgid (Set Group ID)</h3>
+<ul>
+<li>On <strong>files</strong>: Process runs with the file’s group.</li>
+<li>On <strong>directories</strong>: New files inherit the directory&rsquo;s group.</li>
+<li>Represented by <code>s</code> in the group field (<code>rwxr-sr-x</code>).</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod g+s /shared/folder</span></span></code></pre></div>
+<h3 id="3-sticky-bit">3. Sticky Bit</h3>
+<ul>
+<li>Commonly used on shared directories like <code>/tmp</code>.</li>
+<li>Only the file&rsquo;s <strong>owner</strong> can delete it.</li>
+<li>Represented by <code>t</code> in the others field (<code>rwxrwxrwt</code>).</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +t /shared/folder</span></span></code></pre></div>
+<hr>
+<h2 id="-special-permissions-with-octal">🧪 Special Permissions with Octal</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">1755</span> file.sh   <span style="color:#75715e"># Sticky bit + rwxr-xr-x</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">2755</span> file.sh   <span style="color:#75715e"># Setgid + rwxr-sr-x</span>
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">4755</span> file.sh   <span style="color:#75715e"># Setuid + rwsr-xr-x</span></span></span></code></pre></div>
+<p>View them with <code>ls -l</code>:</p>
+<ul>
+<li><code>s</code> in user/group field: Setuid/Setgid</li>
+<li><code>t</code> in others field: Sticky bit</li>
+</ul>
+<hr>
+<h2 id="-summary">📘 Summary</h2>
+<ul>
+<li>Use <code>ls -l</code> to view permissions</li>
+<li>Use <code>chmod</code> (symbolic or octal) to modify them</li>
+<li>Use <code>chown</code> to change file ownership</li>
+<li>Use <code>chmod u+s</code>, <code>g+s</code>, or <code>+t</code> to set special permissions</li>
+</ul>
+<p>Mastering Linux permissions helps enforce security, especially in multi-user environments.</p>
 
   <footer class="footline">
   </footer>
@@ -142,7 +682,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746598184";
+          window.index_js_url="../searchindex.en.js?1746680681";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -155,12 +695,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746598184" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746598184" defer></script>
-        <script src="../js/search.js?1746598184" defer></script>
+        <script src="../js/auto-complete.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.min.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1746680681" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1746680681" defer></script>
+        <script src="../js/search.js?1746680681" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -171,11 +711,11 @@ Devops 60 hrs
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
-            <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Day 01</a></li>
-            <li class="" data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Day 02</a></li>
-            <li class="active " data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">Day 03</a></li>
-            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">Day 04</a></li>
-            <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Day 05</a></li>
+            <li class="active " data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
+            <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Vagrant: Day 01</a></li>
+            <li class="" data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Linux Basics: Day 02</a></li>
+            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">Linux Disk Management: Day 04</a></li>
+            <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Linux Package Management: Day 05</a></li>
           </ul>
         </div>
     
@@ -229,8 +769,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746598184" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746598184" defer></script>
-    <script src="../js/theme.js?1746598184" defer></script>
+    <script src="../js/clipboard.min.js?1746680681" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1746680681" defer></script>
+    <script src="../js/theme.js?1746680681" defer></script>
   </body>
 </html>

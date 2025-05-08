@@ -1,9 +1,7 @@
 +++
-title = "Day 02"
-
+title = "Linux Basics: Day 02"
+weight = 2
 +++
-
-# Linux Basics Commands
 
 ## 1. `pwd` (Print Working Directory)
 - **Usage:** `pwd`
