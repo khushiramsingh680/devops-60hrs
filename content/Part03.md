@@ -1,7 +1,7 @@
 +++
 title = "User, Group and Permissions: Day 03"
 duration = "2h"
-weight = 1
+weight = 3
 +++
 
 

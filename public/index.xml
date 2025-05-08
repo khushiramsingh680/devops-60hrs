@@ -8,13 +8,6 @@
     <language>en-us</language>
     <atom:link href="https://github.com/khushiramsingh680/devops-60hrs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>User, Group and Permissions: Day 03</title>
-      <link>https://github.com/khushiramsingh680/devops-60hrs/part03/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/khushiramsingh680/devops-60hrs/part03/index.html</guid>
-      <description>User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.&#xA;1. useradd (Create a New User) Usage: useradd &lt;username&gt;&#xA;Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.</description>
-    </item>
-    <item>
       <title>Vagrant: Day 01</title>
       <link>https://github.com/khushiramsingh680/devops-60hrs/part01/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -27,6 +20,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part02/index.html</guid>
       <description>1. pwd (Print Working Directory) Usage: pwd&#xA;Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.&#xA;Example:&#xA;$ pwd /home/user 2. ls (List) Usage: ls&#xA;Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.</description>
+    </item>
+    <item>
+      <title>User, Group and Permissions: Day 03</title>
+      <link>https://github.com/khushiramsingh680/devops-60hrs/part03/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/khushiramsingh680/devops-60hrs/part03/index.html</guid>
+      <description>User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.&#xA;1. useradd (Create a New User) Usage: useradd &lt;username&gt;&#xA;Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.</description>
     </item>
     <item>
       <title>Linux Disk Management: Day 04</title>
