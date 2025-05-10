@@ -38,8 +38,54 @@ duration = "1.5h"
   ```
 
 ---
+## Getting Started with Vagrant 
+### Vagrant boxes can be searched [Here](https://portal.cloud.hashicorp.com/vagrant/discover)
+ - Create a Directory and get into the dir 
+ - Create a Vagrantfile and initiate the box
+  ```shell
+  vagrant init generic/rhel8 --box-version 4.3.12
+  ```
+- It will generate a file like given below:
+```ruby
+  Vagrant.configure("2") do |config|
+  config.vm.box = "generic/rhel8"
+  config.vm.box_version = "4.3.12"
+end
+```
+- Create a vm using this vagrantfile (Prerequisites, Virtualbox and vagrant )
+```shell
+vagrant up
+```
+- **Now check the vm from Virtual box**
+![VM](/images/vm01.png)
 
-## 3. Vagrantfile Basics
+- **Also check the Network type and forwarding rule**
+![VM](/images/vm02.png)
+- **login using putty**
+![VM](/images/vm03.png)
+- **Warning:** By Default any vm created with vagrant will have a user **vagrant** and password **vagrant**
+- **Warning:** Password Authentication is not enabled in all other os except ubuntu.
+- **Enable SSH Password Authentication**
+```shell
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/rhel8"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    # Enable password authentication
+    sudo sed -i 's/^#\\?PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+    sudo sed -i 's/^#\\?UsePAM.*/UsePAM yes/' /etc/ssh/sshd_config
+
+    # Restart SSH service
+    sudo systemctl restart sshd
+  SHELL
+end
+```
+- **Run the below command**
+```shell
+vagrant up --provision
+```
+  
+##  Vagrantfile Basics
 
 ```ruby
 Vagrant.configure("2") do |config|
@@ -61,7 +107,7 @@ end
 
 ---
 
-## 4. Provisioning
+## Provisioning
 
 - **Methods**:
   - Shell Scripts
@@ -83,7 +129,7 @@ SHELL
 
 ---
 
-## 5. Basic Commands
+##  Basic Commands
 
 | Command                | Description                             |
 |------------------------|-----------------------------------------|
@@ -99,16 +145,13 @@ SHELL
 
 ---
 
-## 6. Synced Folders
+## Synced Folders
 
 - **Default**: `/vagrant` directory synced
 - **Custom Example**:
   ```ruby
   config.vm.synced_folder "./local", "/vm_data"
   ```
-
-- **Types**: default, rsync, NFS
-
 ---
 
 ## 7. Networking
@@ -205,3 +248,9 @@ vagrant halt
 
 - [Vagrant Documentation](https://www.vagrantup.com/docs)
 - [Vagrant Boxes](https://app.vagrantup.com/boxes/search)
+### Example if you want to create multiple vms at the same time
+```shell
+ git clone https://gitlab.com/container-and-kubernetes/kubernetes-2024.git
+ cd kubernetes-2024/two-vms
+ vagrant up
+ ```

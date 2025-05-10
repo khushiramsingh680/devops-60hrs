@@ -218,33 +218,13 @@ gpgcheck=0
 
 Linux package management ensures reliable and secure software deployment.
 
-+++
-title = "Day 08: Linux Monitoring"
-date = 2025-05-07T18:00:00Z
-draft = false
-description = "Learn essential Linux monitoring tools and commands to analyze system performance."
-author = "Nirpendra Kumar"
-tags = ["linux", "monitoring", "performance", "devops"]
-categories = ["Linux", "Monitoring"]
-slug = "day-08-linux-monitoring"
-url = "/tutorials/linux/day-08/"
-weight = 8
-toc = true
-summary = "Track CPU, memory, disk, and network usage using Linux command-line tools."
-image = "images/linux-monitoring.png"
-type = "post"
-layout = "single"
-series = ["Linux Basics"]
-duration = "1.5h"
-+++
-
-# 📊 Day 08: Linux Monitoring
+## 📊 Linux Monitoring
 
 Monitoring Linux is critical for performance tuning, capacity planning, and troubleshooting. Below are essential CLI tools for real-time and historical system monitoring.
 
 ---
 
-## 🧠 1. **CPU and Memory Monitoring**
+### 🧠 1. **CPU and Memory Monitoring**
 
 ### `top` — real-time system performance
 

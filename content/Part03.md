@@ -202,7 +202,41 @@ User management in Linux involves creating, modifying, and deleting user account
     $ su - john
     ```
     - Switches to the `john` user account.
+## 16 SSH private and public key
+# 🔐 SSH Key Authentication in RHEL 8
 
+SSH key-based authentication is a secure and convenient method for logging into remote systems without using passwords.
+
+---
+
+## 📂 SSH Key Pair Basics
+
+- **Public Key** (`id_rsa.pub`): Shared with the remote server.
+- **Private Key** (`id_rsa`): Kept **secure and private** on the client.
+
+> 🔒 Never share your **private key**.
+
+---
+
+- 🛠️ Generate SSH Key Pair
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+- Copy Public Key to Remote Server
+```shell
+ssh-copy-id user@remote-server
+```
+- Login with ssh key 
+```shell
+ssh user@remote-server
+```
+- Permissions on Remote Server for a specific user
+```shell
+sudo chown -R john:john /home/john/.ssh
+chmod 700 /home/john/.ssh
+chmod 600 /home/john/.ssh/authorized_keys
+```
 ---
 
 ## 16. `sudo` (Execute a Command as Another User)
@@ -421,7 +455,61 @@ View them with `ls -l`:
 Mastering Linux permissions helps enforce security, especially in multi-user environments.
 
 
+# 🌐 RHEL 8 Networking Overview
 
+Red Hat Enterprise Linux 8 introduces several modern tools and practices for network configuration and management. It replaces legacy networking services like `network` and `ifconfig` with **NetworkManager** and `nmcli`.
+
+---
+
+## 🧰 Key Tools
+
+| Tool     | Purpose                                      |
+|----------|----------------------------------------------|
+| `nmcli`  | CLI to control NetworkManager                |
+| `nmtui`  | Text-based UI for NetworkManager             |
+| `ip`     | Show/manipulate routing, devices, IPs        |
+| `ss`     | Display socket statistics (replaces `netstat`) |
+| `firewalld` | Manage firewall dynamically                |
+| `nmstatectl` | Declarative network management (advanced) |
+
+---
+
+## 📁 Network Configuration Files
+
+| File/Directory                      | Purpose                            |
+|------------------------------------|------------------------------------|
+| `/etc/NetworkManager/`             | Main NetworkManager configs        |
+| `/etc/sysconfig/network-scripts/`  | Legacy ifcfg-* files (still used)  |
+| `/etc/resolv.conf`                 | DNS resolution                     |
+| `/etc/hosts`                       | Static hostname-IP mapping         |
+| `/etc/hostname`                    | Sets the system hostname           |
+
+---
+
+## 🖧 Common Networking Commands
+
+### 🔎 View Network Interfaces
+```bash
+ip a
+nmcli device status
+```
+- Bring Interface Up/Down
+```shell
+nmcli device disconnect ens33
+nmcli device connect ens33
+```
+- Set Static Ip address
+```shell
+nmcli con add type ethernet con-name static-ens33 ifname ens33 ipv4.addresses 192.168.1.100/24 \
+  ipv4.gateway 192.168.1.1 ipv4.dns "8.8.8.8" ipv4.method manual
+```
+- Restart Networking 
+```shell
+nmcli networking off
+nmcli networking on
+# or restart NetworkManager service
+systemctl restart NetworkManager
+```
 
 
 

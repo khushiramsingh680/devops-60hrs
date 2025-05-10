@@ -8,18 +8,25 @@
     <language>en-us</language>
     <atom:link href="https://github.com/khushiramsingh680/devops-60hrs/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Devops Discussion</title>
+      <link>https://github.com/khushiramsingh680/devops-60hrs/planning/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/khushiramsingh680/devops-60hrs/planning/index.html</guid>
+      <description>Devops Discussion: Linux Administration&#xA;Most frequently commands Performance Management Disk Management File management User , Group and Permission Management Linux Package Management Linux Mmonitoring Linux Networking and Service Management Linux Virtulization Automation using Ansible&#xA;Need of Ansible&#xA;Ansible inventory&#xA;Ansible and Python history&#xA;Ansible Ad hoc commands&#xA;Ansible Variable at different leveles&#xA;At inventory At adhoc command At playbook Ansible Playbook&#xA;Ansible roles&#xA;Ansible vault&#xA;Ansible jinja template&#xA;Ansible Tower/AWX</description>
+    </item>
+    <item>
       <title>Vagrant: Day 01</title>
       <link>https://github.com/khushiramsingh680/devops-60hrs/part01/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part01/index.html</guid>
-      <description>📦 Vagrant - Day 01 1. Introduction to Vagrant What is Vagrant? Vagrant is an open-source tool that allows you to build and manage virtualized development environments.&#xA;Benefits of Using Vagrant&#xA;Reproducibility Isolation Simplified provisioning Use Cases&#xA;DevOps automation Testing infrastructure Multi-VM environments 2. Installation Linux/Mac/Windows Step 1: Install VirtualBox&#xA;https://www.virtualbox.org/wiki/Downloads&#xA;Step 2: Install Vagrant&#xA;https://www.vagrantup.com/downloads&#xA;Verify Installation:&#xA;vagrant --version 3. Vagrantfile Basics Vagrant.configure(&#34;2&#34;) do |config| config.vm.box = &#34;hashicorp/bionic64&#34; config.vm.network &#34;private_network&#34;, type: &#34;dhcp&#34; config.vm.synced_folder &#34;./data&#34;, &#34;/vagrant_data&#34; config.vm.provider &#34;virtualbox&#34; do |vb| vb.memory = &#34;1024&#34; vb.cpus = 2 end end Key Options: config.vm.box: Defines the base box Networking: private, public, and port forwarding Synced folders: sharing between host and guest 4. Provisioning Methods:</description>
+      <description>📦 Vagrant - Day 01 1. Introduction to Vagrant What is Vagrant? Vagrant is an open-source tool that allows you to build and manage virtualized development environments.&#xA;Benefits of Using Vagrant&#xA;Reproducibility Isolation Simplified provisioning Use Cases&#xA;DevOps automation Testing infrastructure Multi-VM environments 2. Installation Linux/Mac/Windows Step 1: Install VirtualBox&#xA;https://www.virtualbox.org/wiki/Downloads&#xA;Step 2: Install Vagrant&#xA;https://www.vagrantup.com/downloads&#xA;Verify Installation:&#xA;vagrant --version Getting Started with Vagrant Vagrant boxes can be searched Here Create a Directory and get into the dir Create a Vagrantfile and initiate the box vagrant init generic/rhel8 --box-version 4.3.12 It will generate a file like given below: Vagrant.configure(&#34;2&#34;) do |config| config.vm.box = &#34;generic/rhel8&#34; config.vm.box_version = &#34;4.3.12&#34; end Create a vm using this vagrantfile (Prerequisites, Virtualbox and vagrant ) vagrant up Now check the vm from Virtual box</description>
     </item>
     <item>
       <title>Linux Basics: Day 02</title>
       <link>https://github.com/khushiramsingh680/devops-60hrs/part02/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part02/index.html</guid>
-      <description>1. pwd (Print Working Directory) Usage: pwd&#xA;Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.&#xA;Example:&#xA;$ pwd /home/user 2. ls (List) Usage: ls&#xA;Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.</description>
+      <description>Architecture and File Structure of Linux System Architecture RHEL Linux 9 supports x86_64 (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the Linux Kernel (typically version 5.14.x) and the systemd init system.&#xA;Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also supports ARM and other architectures. File System Hierarchy The file structure in Rocky Linux 9 follows the Filesystem Hierarchy Standard (FHS), which is used across most Linux distributions. Here’s a breakdown of important directories:</description>
     </item>
     <item>
       <title>User, Group and Permissions: Day 03</title>

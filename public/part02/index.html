@@ -5,43 +5,31 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.4">
     <meta name="generator" content="Relearn 7.2.1+f1701957c30daae7cd133bec5a7968480563ce9f">
-    <meta name="description" content="1. pwd (Print Working Directory) Usage: pwd
-Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.
-Example:
-$ pwd /home/user 2. ls (List) Usage: ls
-Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.">
+    <meta name="description" content="Architecture and File Structure of Linux System Architecture RHEL Linux 9 supports x86_64 (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the Linux Kernel (typically version 5.14.x) and the systemd init system.
+Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also supports ARM and other architectures. File System Hierarchy The file structure in Rocky Linux 9 follows the Filesystem Hierarchy Standard (FHS), which is used across most Linux distributions. Here’s a breakdown of important directories:">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Linux Basics: Day 02 :: Devops 60 hrs">
-    <meta name="twitter:description" content="1. pwd (Print Working Directory) Usage: pwd
-Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.
-Example:
-$ pwd /home/user 2. ls (List) Usage: ls
-Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.">
+    <meta name="twitter:description" content="Architecture and File Structure of Linux System Architecture RHEL Linux 9 supports x86_64 (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the Linux Kernel (typically version 5.14.x) and the systemd init system.
+Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also supports ARM and other architectures. File System Hierarchy The file structure in Rocky Linux 9 follows the Filesystem Hierarchy Standard (FHS), which is used across most Linux distributions. Here’s a breakdown of important directories:">
     <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/part02/index.html">
     <meta property="og:site_name" content="Devops 60 hrs">
     <meta property="og:title" content="Linux Basics: Day 02 :: Devops 60 hrs">
-    <meta property="og:description" content="1. pwd (Print Working Directory) Usage: pwd
-Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.
-Example:
-$ pwd /home/user 2. ls (List) Usage: ls
-Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.">
+    <meta property="og:description" content="Architecture and File Structure of Linux System Architecture RHEL Linux 9 supports x86_64 (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the Linux Kernel (typically version 5.14.x) and the systemd init system.
+Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also supports ARM and other architectures. File System Hierarchy The file structure in Rocky Linux 9 follows the Filesystem Hierarchy Standard (FHS), which is used across most Linux distributions. Here’s a breakdown of important directories:">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Devops 60 hrs">
     <meta itemprop="name" content="Linux Basics: Day 02 :: Devops 60 hrs">
-    <meta itemprop="description" content="1. pwd (Print Working Directory) Usage: pwd
-Explanation: This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.
-Example:
-$ pwd /home/user 2. ls (List) Usage: ls
-Explanation: Lists the files and directories within the current directory. By default, ls will not show hidden files (files starting with a dot). Use options like -l for detailed listing or -a for all files.">
-    <meta itemprop="wordCount" content="990">
+    <meta itemprop="description" content="Architecture and File Structure of Linux System Architecture RHEL Linux 9 supports x86_64 (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the Linux Kernel (typically version 5.14.x) and the systemd init system.
+Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also supports ARM and other architectures. File System Hierarchy The file structure in Rocky Linux 9 follows the Filesystem Hierarchy Standard (FHS), which is used across most Linux distributions. Here’s a breakdown of important directories:">
+    <meta itemprop="wordCount" content="988">
     <title>Linux Basics: Day 02 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746684225" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746684225" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746684225" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746684225" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746684225" rel="stylesheet">
-    <link href="../css/theme.min.css?1746684225" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746684225" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746885328" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1746885328" rel="stylesheet">
+    <link href="../css/theme.min.css?1746885328" rel="stylesheet">
+    <link href="../css/format-html.min.css?1746885328" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -104,6 +92,13 @@ Explanation: Lists the files and directories within the current directory. By de
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
+    <li><a href="#architecture-and-file-structure-of-linux">Architecture and File Structure of Linux</a>
+      <ul>
+        <li><a href="#system-architecture">System Architecture</a></li>
+        <li><a href="#file-system-hierarchy">File System Hierarchy</a></li>
+        <li><a href="#key-configuration-files">Key Configuration Files</a></li>
+      </ul>
+    </li>
     <li><a href="#1-pwd-print-working-directory">1. <code>pwd</code> (Print Working Directory)</a></li>
     <li><a href="#2-ls-list">2. <code>ls</code> (List)</a></li>
     <li><a href="#3-cd-change-directory">3. <code>cd</code> (Change Directory)</a></li>
@@ -122,16 +117,6 @@ Explanation: Lists the files and directories within the current directory. By de
     <li><a href="#16-free-memory-usage">16. <code>free</code> (Memory Usage)</a></li>
     <li><a href="#17-uname-system-information">17. <code>uname</code> (System Information)</a></li>
     <li><a href="#18-hostname-getset-hostname">18. <code>hostname</code> (Get/Set Hostname)</a></li>
-  </ul>
-
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#system-architecture">System Architecture</a></li>
-        <li><a href="#file-system-hierarchy">File System Hierarchy</a></li>
-        <li><a href="#key-configuration-files">Key Configuration Files</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
                 </div>
@@ -166,213 +151,9 @@ Explanation: Lists the files and directories within the current directory. By de
 
 <h1 id="linux-basics-day-02">Linux Basics: Day 02</h1>
 
-<h2 id="1-pwd-print-working-directory">1. <code>pwd</code> (Print Working Directory)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>pwd</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> This command prints the full path of the current working directory. It helps users confirm where they are in the directory structure.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pwd
-</span></span><span style="display:flex;"><span>/home/user</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="2-ls-list">2. <code>ls</code> (List)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>ls</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Lists the files and directories within the current directory. By default, <code>ls</code> will not show hidden files (files starting with a dot). Use options like <code>-l</code> for detailed listing or <code>-a</code> for all files.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -la
-</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">28</span>
-</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">4</span> user user <span style="color:#ae81ff">4096</span> May <span style="color:#ae81ff">10</span> 10:45 .
-</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">3</span> user user <span style="color:#ae81ff">4096</span> May <span style="color:#ae81ff">10</span> 10:45 ..
-</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> user user   <span style="color:#ae81ff">45</span> May <span style="color:#ae81ff">10</span> 10:45 file1.txt</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="3-cd-change-directory">3. <code>cd</code> (Change Directory)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>cd &lt;directory-path&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> This command allows you to change to a specified directory. If no argument is provided, it takes you to the user&rsquo;s home directory.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /home/user/Documents</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="4-cp-copy">4. <code>cp</code> (Copy)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>cp &lt;source&gt; &lt;destination&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Copies files or directories from the source to the destination. You can use the <code>-r</code> option to copy directories recursively.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cp file1.txt /home/user/backup/</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="5-mv-moverename">5. <code>mv</code> (Move/Rename)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>mv &lt;source&gt; &lt;destination&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Moves or renames files and directories. It’s also used to move files between directories.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mv oldname.txt newname.txt</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="6-rm-remove">6. <code>rm</code> (Remove)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>rm &lt;file&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Removes a file. If you want to remove a directory, you must use the <code>-r</code> option for recursive removal.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rm -r directory_name</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="7-touch-create-empty-file">7. <code>touch</code> (Create Empty File)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>touch &lt;file-name&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Creates a new empty file if it doesn’t exist. If the file exists, <code>touch</code> updates its timestamp.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ touch newfile.txt</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="8-cat-concatenate-and-display-file">8. <code>cat</code> (Concatenate and Display File)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>cat &lt;file-name&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the contents of a file to the terminal. It can also be used to concatenate files together.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat file1.txt</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="9-echo-display-text">9. <code>echo</code> (Display Text)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>echo &lt;text&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the text to the terminal or outputs it to a file.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;Hello, World!&#34;</span></span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="10-man-manual-pages">10. <code>man</code> (Manual Pages)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>man &lt;command&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the manual or help documentation for a command.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ man ls</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="11-chmod-change-file-permissions">11. <code>chmod</code> (Change File Permissions)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>chmod &lt;permissions&gt; &lt;file&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Changes the permissions of a file or directory. It uses numerical values to set read, write, and execute permissions for the owner, group, and others.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod <span style="color:#ae81ff">755</span> script.sh</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="12-chown-change-ownergroup">12. <code>chown</code> (Change Owner/Group)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>chown &lt;user&gt;:&lt;group&gt; &lt;file&gt;</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Changes the ownership of a file or directory. You can specify a user, a group, or both.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chown user:group file.txt</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="13-ps-process-status">13. <code>ps</code> (Process Status)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>ps aux</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the current running processes on your system, showing information such as process ID (PID), memory and CPU usage.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ps aux</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="14-top-task-manager">14. <code>top</code> (Task Manager)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>top</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays a real-time, dynamic view of the system’s running processes, including memory, CPU usage, and more.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ top</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="15-df-disk-free">15. <code>df</code> (Disk Free)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>df -h</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the available disk space on all mounted filesystems. The <code>-h</code> option makes the output human-readable.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ df -h</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="16-free-memory-usage">16. <code>free</code> (Memory Usage)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>free -h</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the amount of free and used memory in the system.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ free -h</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="17-uname-system-information">17. <code>uname</code> (System Information)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>uname -a</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays the system information, including the kernel version, architecture, and other details.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ uname -a</span></span></code></pre></div>
-</li>
-</ul>
-<h2 id="18-hostname-getset-hostname">18. <code>hostname</code> (Get/Set Hostname)</h2>
-<ul>
-<li>
-<p><strong>Usage:</strong> <code>hostname</code></p>
-</li>
-<li>
-<p><strong>Explanation:</strong> Displays or sets the system’s hostname.</p>
-<p><strong>Example:</strong></p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hostname</span></span></code></pre></div>
-</li>
-</ul>
-<hr>
-<h1 id="architecture-and-file-structure-on-rocky-linux-9">Architecture and File Structure on Rocky Linux 9</h1>
+<h2 id="architecture-and-file-structure-of-linux">Architecture and File Structure of Linux</h2>
 <h3 id="system-architecture">System Architecture</h3>
-<p>Rocky Linux 9 supports <strong>x86_64</strong> (64-bit) architecture by default. It also provides support for ARM-based systems. Rocky Linux 9 uses the <strong>Linux Kernel</strong> (typically version 5.14.x) and the <strong>systemd</strong> init system.</p>
+<p>RHEL Linux 9 supports <strong>x86_64</strong> (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the <strong>Linux Kernel</strong> (typically version 5.14.x) and the <strong>systemd</strong> init system.</p>
 <ul>
 <li><strong>Package Manager:</strong> <code>dnf</code> (Dandified Yum)</li>
 <li><strong>System Architecture:</strong> Primarily <strong>x86_64</strong>, also supports ARM and other architectures.</li>
@@ -505,6 +286,219 @@ Explanation: Lists the files and directories within the current directory. By de
 <li><strong>Systemd Services:</strong> <code>/etc/systemd/system/</code></li>
 </ul>
 <hr>
+<h2 id="1-pwd-print-working-directory">1. <code>pwd</code> (Print Working Directory)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>pwd</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> This command prints the full path of the current working directory. It helps users confirm where
+they are in the directory structure.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pwd
+</span></span><span style="display:flex;"><span>/home/user</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="2-ls-list">2. <code>ls</code> (List)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>ls</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Lists the files and directories within the current directory. By default, <code>ls</code> will not show
+hidden files (files starting with a dot). Use options like <code>-l</code> for detailed listing or <code>-a</code> for all files.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -la
+</span></span><span style="display:flex;"><span>total <span style="color:#ae81ff">28</span>
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">4</span> user user <span style="color:#ae81ff">4096</span> May <span style="color:#ae81ff">10</span> 10:45 .
+</span></span><span style="display:flex;"><span>drwxr-xr-x <span style="color:#ae81ff">3</span> user user <span style="color:#ae81ff">4096</span> May <span style="color:#ae81ff">10</span> 10:45 ..
+</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> user user   <span style="color:#ae81ff">45</span> May <span style="color:#ae81ff">10</span> 10:45 file1.txt</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="3-cd-change-directory">3. <code>cd</code> (Change Directory)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>cd &lt;directory-path&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> This command allows you to change to a specified directory. If no argument is provided, it takes
+you to the user&rsquo;s home directory.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cd /home/user/Documents</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="4-cp-copy">4. <code>cp</code> (Copy)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>cp &lt;source&gt; &lt;destination&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Copies files or directories from the source to the destination. You can use the <code>-r</code> option to
+copy directories recursively.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cp file1.txt /home/user/backup/</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="5-mv-moverename">5. <code>mv</code> (Move/Rename)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>mv &lt;source&gt; &lt;destination&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Moves or renames files and directories. It’s also used to move files between directories.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ mv oldname.txt newname.txt</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="6-rm-remove">6. <code>rm</code> (Remove)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>rm &lt;file&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Removes a file. If you want to remove a directory, you must use the <code>-r</code> option for recursive
+removal.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ rm -r directory_name</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="7-touch-create-empty-file">7. <code>touch</code> (Create Empty File)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>touch &lt;file-name&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Creates a new empty file if it doesn’t exist. If the file exists, <code>touch</code> updates its timestamp.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ touch newfile.txt</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="8-cat-concatenate-and-display-file">8. <code>cat</code> (Concatenate and Display File)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>cat &lt;file-name&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the contents of a file to the terminal. It can also be used to concatenate files
+together.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ cat file1.txt</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="9-echo-display-text">9. <code>echo</code> (Display Text)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>echo &lt;text&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the text to the terminal or outputs it to a file.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ echo <span style="color:#e6db74">&#34;Hello, World!&#34;</span></span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="10-man-manual-pages">10. <code>man</code> (Manual Pages)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>man &lt;command&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the manual or help documentation for a command.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ man ls</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="11-chmod-change-file-permissions">11. <code>chmod</code> (Change File Permissions)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>chmod &lt;permissions&gt; &lt;file&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Changes the permissions of a file or directory. It uses numerical values to set read, write, and
+execute permissions for the owner, group, and others.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chmod <span style="color:#ae81ff">755</span> script.sh</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="12-chown-change-ownergroup">12. <code>chown</code> (Change Owner/Group)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>chown &lt;user&gt;:&lt;group&gt; &lt;file&gt;</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Changes the ownership of a file or directory. You can specify a user, a group, or both.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ chown user:group file.txt</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="13-ps-process-status">13. <code>ps</code> (Process Status)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>ps aux</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the current running processes on your system, showing information such as process ID
+(PID), memory and CPU usage.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ps aux</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="14-top-task-manager">14. <code>top</code> (Task Manager)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>top</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays a real-time, dynamic view of the system’s running processes, including memory, CPU
+usage, and more.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ top</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="15-df-disk-free">15. <code>df</code> (Disk Free)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>df -h</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the available disk space on all mounted filesystems. The <code>-h</code> option makes the output
+human-readable.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ df -h</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="16-free-memory-usage">16. <code>free</code> (Memory Usage)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>free -h</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the amount of free and used memory in the system.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ free -h</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="17-uname-system-information">17. <code>uname</code> (System Information)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>uname -a</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays the system information, including the kernel version, architecture, and other details.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ uname -a</span></span></code></pre></div>
+</li>
+</ul>
+<h2 id="18-hostname-getset-hostname">18. <code>hostname</code> (Get/Set Hostname)</h2>
+<ul>
+<li>
+<p><strong>Usage:</strong> <code>hostname</code></p>
+</li>
+<li>
+<p><strong>Explanation:</strong> Displays or sets the system’s hostname.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hostname</span></span></code></pre></div>
+</li>
+</ul>
 
   <footer class="footline">
   </footer>
@@ -521,7 +515,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746684225";
+          window.index_js_url="../searchindex.en.js?1746885328";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -534,12 +528,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746684225" defer></script>
-        <script src="../js/search.js?1746684225" defer></script>
+        <script src="../js/auto-complete.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1746885328" defer></script>
+        <script src="../js/search.js?1746885328" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -550,6 +544,7 @@ Devops 60 hrs
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/planning/index.html"><a class="padding" href="../planning/index.html">Devops Discussion</a></li>
             <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Vagrant: Day 01</a></li>
             <li class="active " data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Linux Basics: Day 02</a></li>
             <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
@@ -608,8 +603,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746684225" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746684225" defer></script>
-    <script src="../js/theme.js?1746684225" defer></script>
+    <script src="../js/clipboard.min.js?1746885328" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1746885328" defer></script>
+    <script src="../js/theme.js?1746885328" defer></script>
   </body>
 </html>

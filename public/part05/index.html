@@ -23,13 +23,13 @@
     <meta itemprop="name" content="Linux Package Management: Day 05 :: Devops 60 hrs">
     <meta itemprop="description" content="📦 What is Package Management? Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.
 🧰 1. Debian/Ubuntu: apt (Advanced Package Tool) Update package list: sudo apt update Upgrade packages: sudo apt upgrade Install a package: sudo apt install package-name Remove a package: sudo apt remove package-name Remove unused packages: sudo apt autoremove Search for a package: apt search nginx 🍱 2. RHEL/CentOS/Rocky: yum and dnf On RHEL 8&#43; and Fedora, use dnf instead of yum.">
-    <meta itemprop="wordCount" content="780">
+    <meta itemprop="wordCount" content="696">
     <title>Linux Package Management: Day 05 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746684225" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746684225" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746684225" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746684225" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746684225" rel="stylesheet">
-    <link href="../css/theme.min.css?1746684225" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746684225" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746885328" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1746885328" rel="stylesheet">
+    <link href="../css/theme.min.css?1746885328" rel="stylesheet">
+    <link href="../css/format-html.min.css?1746885328" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -141,11 +141,9 @@
       </ul>
     </li>
     <li><a href="#-summary">✅ Summary</a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></a>
+    <li><a href="#-linux-monitoring">📊 Linux Monitoring</a>
       <ul>
+        <li><a href="#-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></a></li>
         <li><a href="#top--real-time-system-performance"><code>top</code> — real-time system performance</a></li>
         <li><a href="#htop--enhanced-top-colorful-ui"><code>htop</code> — enhanced <code>top</code> (colorful UI)</a></li>
         <li><a href="#vmstat--memory-processes-and-system-info"><code>vmstat</code> — memory, processes, and system info</a></li>
@@ -335,29 +333,10 @@
   </tbody>
 </table>
 <p>Linux package management ensures reliable and secure software deployment.</p>
-<p>+++
-title = &ldquo;Day 08: Linux Monitoring&rdquo;
-date = 2025-05-07T18:00:00Z
-draft = false
-description = &ldquo;Learn essential Linux monitoring tools and commands to analyze system performance.&rdquo;
-author = &ldquo;Nirpendra Kumar&rdquo;
-tags = [&ldquo;linux&rdquo;, &ldquo;monitoring&rdquo;, &ldquo;performance&rdquo;, &ldquo;devops&rdquo;]
-categories = [&ldquo;Linux&rdquo;, &ldquo;Monitoring&rdquo;]
-slug = &ldquo;day-08-linux-monitoring&rdquo;
-url = &ldquo;/tutorials/linux/day-08/&rdquo;
-weight = 8
-toc = true
-summary = &ldquo;Track CPU, memory, disk, and network usage using Linux command-line tools.&rdquo;
-image = &ldquo;images/linux-monitoring.png&rdquo;
-type = &ldquo;post&rdquo;
-layout = &ldquo;single&rdquo;
-series = [&ldquo;Linux Basics&rdquo;]
-duration = &ldquo;1.5h&rdquo;
-+++</p>
-<h1 id="-day-08-linux-monitoring">📊 Day 08: Linux Monitoring</h1>
+<h2 id="-linux-monitoring">📊 Linux Monitoring</h2>
 <p>Monitoring Linux is critical for performance tuning, capacity planning, and troubleshooting. Below are essential CLI tools for real-time and historical system monitoring.</p>
 <hr>
-<h2 id="-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></h2>
+<h3 id="-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></h3>
 <h3 id="top--real-time-system-performance"><code>top</code> — real-time system performance</h3>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>top</span></span></code></pre></div>
 <ul>
@@ -522,7 +501,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746684225";
+          window.index_js_url="../searchindex.en.js?1746885328";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -535,12 +514,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746684225" defer></script>
-        <script src="../js/search.js?1746684225" defer></script>
+        <script src="../js/auto-complete.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1746885328" defer></script>
+        <script src="../js/search.js?1746885328" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -551,6 +530,7 @@ Devops 60 hrs
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/planning/index.html"><a class="padding" href="../planning/index.html">Devops Discussion</a></li>
             <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Vagrant: Day 01</a></li>
             <li class="" data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Linux Basics: Day 02</a></li>
             <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
@@ -609,8 +589,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746684225" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746684225" defer></script>
-    <script src="../js/theme.js?1746684225" defer></script>
+    <script src="../js/clipboard.min.js?1746885328" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1746885328" defer></script>
+    <script src="../js/theme.js?1746885328" defer></script>
   </body>
 </html>

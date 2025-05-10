@@ -27,13 +27,13 @@ Explanation: The useradd command is used to create a new user account. The comma
     <meta itemprop="description" content="User Management in Rocky Linux 9 Overview User management in Linux involves creating, modifying, and deleting user accounts, as well as assigning user privileges and managing groups. In Rocky Linux 9, user management is done via command-line tools like useradd, usermod, userdel, and groupadd.
 1. useradd (Create a New User) Usage: useradd &lt;username&gt;
 Explanation: The useradd command is used to create a new user account. The command creates the user’s home directory and sets up default user configuration files.">
-    <meta itemprop="wordCount" content="1268">
+    <meta itemprop="wordCount" content="1531">
     <title>User, Group and Permissions: Day 03 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746684225" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746684225" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746684225" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746684225" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746684225" rel="stylesheet">
-    <link href="../css/theme.min.css?1746684225" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746684225" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746885328" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1746885328" rel="stylesheet">
+    <link href="../css/theme.min.css?1746885328" rel="stylesheet">
+    <link href="../css/format-html.min.css?1746885328" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -113,6 +113,11 @@ Explanation: The useradd command is used to create a new user account. The comma
     <li><a href="#13-w-who-is-logged-in">13. <code>w</code> (Who Is Logged In)</a></li>
     <li><a href="#14-last-display-last-logins">14. <code>last</code> (Display Last Logins)</a></li>
     <li><a href="#15-su-switch-user">15. <code>su</code> (Switch User)</a></li>
+    <li><a href="#16-ssh-private-and-public-key">16 SSH private and public key</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#-ssh-key-pair-basics">📂 SSH Key Pair Basics</a></li>
     <li><a href="#16-sudo-execute-a-command-as-another-user">16. <code>sudo</code> (Execute a Command as Another User)</a></li>
     <li><a href="#17-etcpasswd-user-account-information">17. <code>/etc/passwd</code> (User Account Information)</a></li>
     <li><a href="#18-etcshadow-user-password-information">18. <code>/etc/shadow</code> (User Password Information)</a></li>
@@ -145,6 +150,16 @@ Explanation: The useradd command is used to create a new user account. The comma
     </li>
     <li><a href="#-special-permissions-with-octal">🧪 Special Permissions with Octal</a></li>
     <li><a href="#-summary">📘 Summary</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#-key-tools">🧰 Key Tools</a></li>
+    <li><a href="#-network-configuration-files">📁 Network Configuration Files</a></li>
+    <li><a href="#-common-networking-commands">🖧 Common Networking Commands</a>
+      <ul>
+        <li><a href="#-view-network-interfaces">🔎 View Network Interfaces</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                 </div>
@@ -404,6 +419,37 @@ john     pts/0    :0               09:23    3.00s  0.01s  0.01s w</code></pre></
 </ul>
 </li>
 </ul>
+<h2 id="16-ssh-private-and-public-key">16 SSH private and public key</h2>
+<h1 id="-ssh-key-authentication-in-rhel-8">🔐 SSH Key Authentication in RHEL 8</h1>
+<p>SSH key-based authentication is a secure and convenient method for logging into remote systems without using passwords.</p>
+<hr>
+<h2 id="-ssh-key-pair-basics">📂 SSH Key Pair Basics</h2>
+<ul>
+<li><strong>Public Key</strong> (<code>id_rsa.pub</code>): Shared with the remote server.</li>
+<li><strong>Private Key</strong> (<code>id_rsa</code>): Kept <strong>secure and private</strong> on the client.</li>
+</ul>
+<blockquote>
+<p>🔒 Never share your <strong>private key</strong>.</p>
+</blockquote>
+<hr>
+<ul>
+<li>🛠️ Generate SSH Key Pair</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#ae81ff">4096</span> -C <span style="color:#e6db74">&#34;your_email@example.com&#34;</span></span></span></code></pre></div>
+<ul>
+<li>Copy Public Key to Remote Server</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh-copy-id user@remote-server</span></span></code></pre></div>
+<ul>
+<li>Login with ssh key</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh user@remote-server</span></span></code></pre></div>
+<ul>
+<li>Permissions on Remote Server for a specific user</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo chown -R john:john /home/john/.ssh
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">700</span> /home/john/.ssh
+</span></span><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> /home/john/.ssh/authorized_keys</span></span></code></pre></div>
 <hr>
 <h2 id="16-sudo-execute-a-command-as-another-user">16. <code>sudo</code> (Execute a Command as Another User)</h2>
 <ul>
@@ -666,6 +712,98 @@ john     pts/0    :0               09:23    3.00s  0.01s  0.01s w</code></pre></
 <li>Use <code>chmod u+s</code>, <code>g+s</code>, or <code>+t</code> to set special permissions</li>
 </ul>
 <p>Mastering Linux permissions helps enforce security, especially in multi-user environments.</p>
+<h1 id="-rhel-8-networking-overview">🌐 RHEL 8 Networking Overview</h1>
+<p>Red Hat Enterprise Linux 8 introduces several modern tools and practices for network configuration and management. It replaces legacy networking services like <code>network</code> and <code>ifconfig</code> with <strong>NetworkManager</strong> and <code>nmcli</code>.</p>
+<hr>
+<h2 id="-key-tools">🧰 Key Tools</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Tool</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>nmcli</code></td>
+          <td>CLI to control NetworkManager</td>
+      </tr>
+      <tr>
+          <td><code>nmtui</code></td>
+          <td>Text-based UI for NetworkManager</td>
+      </tr>
+      <tr>
+          <td><code>ip</code></td>
+          <td>Show/manipulate routing, devices, IPs</td>
+      </tr>
+      <tr>
+          <td><code>ss</code></td>
+          <td>Display socket statistics (replaces <code>netstat</code>)</td>
+      </tr>
+      <tr>
+          <td><code>firewalld</code></td>
+          <td>Manage firewall dynamically</td>
+      </tr>
+      <tr>
+          <td><code>nmstatectl</code></td>
+          <td>Declarative network management (advanced)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-network-configuration-files">📁 Network Configuration Files</h2>
+<table>
+  <thead>
+      <tr>
+          <th>File/Directory</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/etc/NetworkManager/</code></td>
+          <td>Main NetworkManager configs</td>
+      </tr>
+      <tr>
+          <td><code>/etc/sysconfig/network-scripts/</code></td>
+          <td>Legacy ifcfg-* files (still used)</td>
+      </tr>
+      <tr>
+          <td><code>/etc/resolv.conf</code></td>
+          <td>DNS resolution</td>
+      </tr>
+      <tr>
+          <td><code>/etc/hosts</code></td>
+          <td>Static hostname-IP mapping</td>
+      </tr>
+      <tr>
+          <td><code>/etc/hostname</code></td>
+          <td>Sets the system hostname</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-common-networking-commands">🖧 Common Networking Commands</h2>
+<h3 id="-view-network-interfaces">🔎 View Network Interfaces</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip a
+</span></span><span style="display:flex;"><span>nmcli device status</span></span></code></pre></div>
+<ul>
+<li>Bring Interface Up/Down</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nmcli device disconnect ens33
+</span></span><span style="display:flex;"><span>nmcli device connect ens33</span></span></code></pre></div>
+<ul>
+<li>Set Static Ip address</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nmcli con add type ethernet con-name static-ens33 ifname ens33 ipv4.addresses 192.168.1.100/24 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  ipv4.gateway 192.168.1.1 ipv4.dns <span style="color:#e6db74">&#34;8.8.8.8&#34;</span> ipv4.method manual</span></span></code></pre></div>
+<ul>
+<li>Restart Networking</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>nmcli networking off
+</span></span><span style="display:flex;"><span>nmcli networking on
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># or restart NetworkManager service</span>
+</span></span><span style="display:flex;"><span>systemctl restart NetworkManager</span></span></code></pre></div>
 
   <footer class="footline">
   </footer>
@@ -682,7 +820,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746684225";
+          window.index_js_url="../searchindex.en.js?1746885328";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -695,12 +833,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746684225" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746684225" defer></script>
-        <script src="../js/search.js?1746684225" defer></script>
+        <script src="../js/auto-complete.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1746885328" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1746885328" defer></script>
+        <script src="../js/search.js?1746885328" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -711,6 +849,7 @@ Devops 60 hrs
       <div id="R-content-wrapper" class="highlightable">
         <div id="R-shortcutmenu-home" class="R-sidebarmenu">
           <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/planning/index.html"><a class="padding" href="../planning/index.html">Devops Discussion</a></li>
             <li class="" data-nav-id="/part01/index.html"><a class="padding" href="../part01/index.html">Vagrant: Day 01</a></li>
             <li class="" data-nav-id="/part02/index.html"><a class="padding" href="../part02/index.html">Linux Basics: Day 02</a></li>
             <li class="active " data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
@@ -769,8 +908,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746684225" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746684225" defer></script>
-    <script src="../js/theme.js?1746684225" defer></script>
+    <script src="../js/clipboard.min.js?1746885328" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1746885328" defer></script>
+    <script src="../js/theme.js?1746885328" defer></script>
   </body>
 </html>
