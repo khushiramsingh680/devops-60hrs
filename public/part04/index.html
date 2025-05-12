@@ -5,27 +5,27 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.4">
     <meta name="generator" content="Relearn 7.2.1+f1701957c30daae7cd133bec5a7968480563ce9f">
-    <meta name="description" content="📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes Using parted (for GPT and scripting): sudo parted /dev/sdX (parted) mklabel gpt (parted) mkpart primary ext4 1MiB 100% (parted) quit 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
+    <meta name="description" content="Topics Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview 📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Linux Disk Management: Day 04 :: Devops 60 hrs">
-    <meta name="twitter:description" content="📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes Using parted (for GPT and scripting): sudo parted /dev/sdX (parted) mklabel gpt (parted) mkpart primary ext4 1MiB 100% (parted) quit 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
+    <meta name="twitter:description" content="Topics Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview 📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
     <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/part04/index.html">
     <meta property="og:site_name" content="Devops 60 hrs">
     <meta property="og:title" content="Linux Disk Management: Day 04 :: Devops 60 hrs">
-    <meta property="og:description" content="📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes Using parted (for GPT and scripting): sudo parted /dev/sdX (parted) mklabel gpt (parted) mkpart primary ext4 1MiB 100% (parted) quit 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
+    <meta property="og:description" content="Topics Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview 📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Devops 60 hrs">
     <meta itemprop="name" content="Linux Disk Management: Day 04 :: Devops 60 hrs">
-    <meta itemprop="description" content="📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes Using parted (for GPT and scripting): sudo parted /dev/sdX (parted) mklabel gpt (parted) mkpart primary ext4 1MiB 100% (parted) quit 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
-    <meta itemprop="wordCount" content="316">
+    <meta itemprop="description" content="Topics Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview 📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:">
+    <meta itemprop="wordCount" content="1620">
     <title>Linux Disk Management: Day 04 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746885328" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746885328" rel="stylesheet">
-    <link href="../css/theme.min.css?1746885328" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746885328" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1747045072" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1747045072" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1747045072" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1747045072" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1747045072" rel="stylesheet">
+    <link href="../css/theme.min.css?1747045072" rel="stylesheet">
+    <link href="../css/format-html.min.css?1747045072" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -88,6 +88,7 @@
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
+    <li><a href="#topics">Topics</a></li>
     <li><a href="#-1-listing-disks-and-partitions">📂 1. Listing Disks and Partitions</a>
       <ul>
         <li><a href="#view-all-block-devices">View all block devices:</a></li>
@@ -122,6 +123,61 @@
     <li><a href="#-7-checking--repairing-filesystems">🔒 7. Checking &amp; Repairing Filesystems</a>
       <ul>
         <li></li>
+      </ul>
+    </li>
+    <li><a href="#-introduction-to-lvm-logical-volume-management">🔒 <strong>Introduction to LVM (Logical Volume Management)</strong></a>
+      <ul>
+        <li><a href="#key-concepts">Key Concepts:</a></li>
+        <li><a href="#advantages-of-lvm">Advantages of LVM:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-lvm-commands">🔒 LVM Commands</a>
+      <ul>
+        <li><a href="#1-list-physical-volumes-pv">1️⃣ <strong>List Physical Volumes (PV)</strong></a></li>
+        <li><a href="#2-display-detailed-information-about-a-physical-volume">2️⃣ <strong>Display Detailed Information about a Physical Volume</strong></a></li>
+        <li><a href="#3-create-a-physical-volume">3️⃣ <strong>Create a Physical Volume</strong></a></li>
+        <li><a href="#4-extend-a-physical-volume">4️⃣ <strong>Extend a Physical Volume</strong></a></li>
+        <li><a href="#5-list-volume-groups-vg">5️⃣ <strong>List Volume Groups (VG)</strong></a></li>
+        <li><a href="#6-display-detailed-information-about-a-volume-group">6️⃣ <strong>Display Detailed Information about a Volume Group</strong></a></li>
+        <li><a href="#7-create-a-volume-group">7️⃣ <strong>Create a Volume Group</strong></a></li>
+        <li><a href="#8-extend-a-volume-group-by-adding-more-physical-volumes">8️⃣ <strong>Extend a Volume Group by Adding More Physical Volumes</strong></a></li>
+        <li><a href="#9-reduce-the-size-of-a-volume-group">9️⃣ <strong>Reduce the Size of a Volume Group</strong></a></li>
+        <li><a href="#-create-a-logical-volume-lv">🔟 <strong>Create a Logical Volume (LV)</strong></a></li>
+        <li><a href="#11-display-information-about-logical-volumes">1️⃣1️⃣ <strong>Display Information about Logical Volumes</strong></a></li>
+        <li><a href="#12-extend-a-logical-volume">1️⃣2️⃣ <strong>Extend a Logical Volume</strong></a></li>
+        <li><a href="#13-resize-a-logical-volume-after-extending">1️⃣3️⃣ <strong>Resize a Logical Volume (after extending)</strong></a></li>
+        <li><a href="#14-remove-a-logical-volume">1️⃣4️⃣ <strong>Remove a Logical Volume</strong></a></li>
+        <li><a href="#15-remove-a-volume-group">1️⃣5️⃣ <strong>Remove a Volume Group</strong></a></li>
+        <li><a href="#16-remove-a-physical-volume">1️⃣6️⃣ <strong>Remove a Physical Volume</strong></a></li>
+        <li><a href="#17-list-all-available-lvm-commands">1️⃣7️⃣ <strong>List All Available LVM Commands</strong></a></li>
+        <li><a href="#18-display-lvm-system-information">1️⃣8️⃣ <strong>Display LVM System Information</strong></a></li>
+        <li><a href="#19-create-a-snapshot-of-a-logical-volume">1️⃣9️⃣ <strong>Create a Snapshot of a Logical Volume</strong></a></li>
+        <li><a href="#20-activate-a-volume-group">2️⃣0️⃣ <strong>Activate a Volume Group</strong></a></li>
+        <li><a href="#21-deactivate-a-volume-group">2️⃣1️⃣ <strong>Deactivate a Volume Group</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#-swap-partitions-in-linux">🔒 <strong>Swap Partitions in Linux</strong></a>
+      <ul>
+        <li><a href="#key-points-about-swap">Key Points About Swap:</a></li>
+        <li><a href="#swap-space-advantages">Swap Space Advantages:</a></li>
+        <li><a href="#-commands-related-to-swap-partitions">🔒 <strong>Commands Related to Swap Partitions</strong></a></li>
+        <li><a href="#1-check-current-swap-usage">1️⃣ <strong>Check Current Swap Usage</strong></a></li>
+        <li><a href="#2-show-swap-information">2️⃣ <strong>Show Swap Information</strong></a></li>
+        <li><a href="#3-create-a-swap-partition">3️⃣ <strong>Create a Swap Partition</strong></a></li>
+        <li><a href="#4-format-a-partition-as-swap">4️⃣ <strong>Format a Partition as Swap</strong></a></li>
+        <li><a href="#5-enable-the-swap-partition">5️⃣ <strong>Enable the Swap Partition</strong></a></li>
+        <li><a href="#6-disable-a-swap-partition">6️⃣ <strong>Disable a Swap Partition</strong></a></li>
+        <li><a href="#7-check-swap-usage-detailed">7️⃣ <strong>Check Swap Usage (Detailed)</strong></a></li>
+        <li><a href="#8-add-swap-space-permanently-to-etcfstab">8️⃣ <strong>Add Swap Space Permanently to <code>/etc/fstab</code></strong></a></li>
+        <li><a href="#9-create-a-swap-file">9️⃣ <strong>Create a Swap File</strong></a></li>
+        <li><a href="#-change-permissions-on-the-swap-file">🔟 <strong>Change Permissions on the Swap File</strong></a></li>
+        <li><a href="#11-make-the-swap-file">1️⃣1️⃣ <strong>Make the Swap File</strong></a></li>
+        <li><a href="#12-activate-the-swap-file">1️⃣2️⃣ <strong>Activate the Swap File</strong></a></li>
+        <li><a href="#13-remove-the-swap-file">1️⃣3️⃣ <strong>Remove the Swap File</strong></a></li>
+        <li><a href="#14-show-the-current-swappiness-setting">1️⃣4️⃣ <strong>Show the Current Swappiness Setting</strong></a></li>
+        <li><a href="#15-set-the-swappiness-value">1️⃣5️⃣ <strong>Set the Swappiness Value</strong></a></li>
+        <li><a href="#16-make-swappiness-value-persistent">1️⃣6️⃣ <strong>Make Swappiness Value Persistent</strong></a></li>
+        <li><a href="#-conclusion-on-swap">🔒 <strong>Conclusion on Swap</strong></a></li>
       </ul>
     </li>
     <li><a href="#-summary">📘 Summary</a></li>
@@ -168,6 +224,15 @@
 <h1 id="linux-disk-management-day-04">Linux Disk Management: Day 04</h1>
 
 <hr>
+<h2 id="topics">Topics</h2>
+<ul>
+<li><strong><a href="../part04/index.html#-1-listing-disks-and-partitions">Checking Exisitng disk</a></strong></li>
+<li><strong><a href="../part04/index.html#-2-partitioning-disks">Partiotion a Disk</a></strong></li>
+<li><strong><a href="../part04/index.html#-4-mounting-and-unmounting-disks">Mounting a disk after format</a></strong></li>
+<li><strong><a href="../part04/index.html#-introduction-to-lvm-logical-volume-management">Introduction to LVM</a></strong></li>
+<li><strong><a href="../part04/index.html#-swap-partitions-in-linux">Swap Partition</a></strong></li>
+<li><strong><a href="../part04/index.html#-rhel-8-logging-overview">Loging Overview</a></strong></li>
+</ul>
 <h2 id="-1-listing-disks-and-partitions">📂 1. Listing Disks and Partitions</h2>
 <h3 id="view-all-block-devices">View all block devices:</h3>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lsblk</span></span></code></pre></div>
@@ -184,12 +249,6 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># n -&gt; new partition</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># p -&gt; primary</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># w -&gt; write changes</span></span></span></code></pre></div>
-<h4 id="using-parted-for-gpt-and-scripting">Using <code>parted</code> (for GPT and scripting):</h4>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo parted /dev/sdX
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>parted<span style="color:#f92672">)</span> mklabel gpt
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>parted<span style="color:#f92672">)</span> mkpart primary ext4 1MiB 100%
-</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>parted<span style="color:#f92672">)</span> quit</span></span></code></pre></div>
-<hr>
 <h2 id="-3-creating-filesystems">🛠️ 3. Creating Filesystems</h2>
 <h4 id="create-ext4-filesystem">Create ext4 filesystem:</h4>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkfs.ext4 /dev/sdX1</span></span></code></pre></div>
@@ -227,6 +286,159 @@
 <p>Must unmount first or run in recovery mode.</p>
 </blockquote>
 <hr>
+<h2 id="-introduction-to-lvm-logical-volume-management">🔒 <strong>Introduction to LVM (Logical Volume Management)</strong></h2>
+<p><strong>LVM (Logical Volume Management)</strong> is a flexible and advanced way to manage disk storage in Linux. It allows you to create, resize, and manage storage volumes dynamically, as opposed to traditional partitioning. LVM abstracts the storage devices, giving you more control and flexibility over disk management.</p>
+<h3 id="key-concepts">Key Concepts:</h3>
+<ol>
+<li><strong>Physical Volumes (PV)</strong>: These are the actual hard drives or partitions that are initialized for use by LVM. A physical volume can be any storage device, such as a disk or a partition.</li>
+<li><strong>Volume Groups (VG)</strong>: A volume group is a collection of physical volumes. It pools storage from the physical volumes, making it easier to allocate storage dynamically.</li>
+<li><strong>Logical Volumes (LV)</strong>: Logical volumes are created within volume groups. These are the virtual storage units that users can use like a regular partition or disk, where file systems are created and data is stored.</li>
+</ol>
+<h3 id="advantages-of-lvm">Advantages of LVM:</h3>
+<ul>
+<li><strong>Dynamic Volume Resizing</strong>: Easily resize logical volumes and file systems without data loss.</li>
+<li><strong>Snapshots</strong>: Create backups of volumes at any point in time.</li>
+<li><strong>Better Disk Utilization</strong>: You can combine multiple physical disks into a single volume group for better utilization and flexibility.</li>
+<li><strong>Striping and Mirroring</strong>: LVM supports RAID-like features such as striping (for performance) and mirroring (for redundancy).</li>
+</ul>
+<p>Now that we have a basic understanding of LVM, let’s look at some common <strong>LVM commands</strong> used to manage storage volumes.</p>
+<h2 id="-lvm-commands">🔒 LVM Commands</h2>
+<h3 id="1-list-physical-volumes-pv">1️⃣ <strong>List Physical Volumes (PV)</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pvs</span></span></code></pre></div>
+<p>This command lists all physical volumes in the system, showing basic information about each PV.</p>
+<h3 id="2-display-detailed-information-about-a-physical-volume">2️⃣ <strong>Display Detailed Information about a Physical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pvdisplay /dev/sda</span></span></code></pre></div>
+<p>Displays detailed information about a specific physical volume.</p>
+<h3 id="3-create-a-physical-volume">3️⃣ <strong>Create a Physical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pvcreate /dev/sda</span></span></code></pre></div>
+<p>Initialize a physical volume on a device (e.g., <code>/dev/sda</code>), so it can be added to a volume group.</p>
+<h3 id="4-extend-a-physical-volume">4️⃣ <strong>Extend a Physical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pvresize /dev/sda</span></span></code></pre></div>
+<p>Resize a physical volume, which is useful if you&rsquo;ve expanded the underlying disk.</p>
+<h3 id="5-list-volume-groups-vg">5️⃣ <strong>List Volume Groups (VG)</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgs</span></span></code></pre></div>
+<p>Shows a list of all volume groups in the system.</p>
+<h3 id="6-display-detailed-information-about-a-volume-group">6️⃣ <strong>Display Detailed Information about a Volume Group</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgdisplay vg_name</span></span></code></pre></div>
+<p>Displays detailed information about a specific volume group, including the total size, free space, and more.</p>
+<h3 id="7-create-a-volume-group">7️⃣ <strong>Create a Volume Group</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgcreate vg_name /dev/sda /dev/sdb</span></span></code></pre></div>
+<p>Creates a new volume group by adding physical volumes (e.g., <code>/dev/sda</code> and <code>/dev/sdb</code>) to the group.</p>
+<h3 id="8-extend-a-volume-group-by-adding-more-physical-volumes">8️⃣ <strong>Extend a Volume Group by Adding More Physical Volumes</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgextend vg_name /dev/sdc</span></span></code></pre></div>
+<p>Adds a new physical volume to an existing volume group to increase its available storage.</p>
+<h3 id="9-reduce-the-size-of-a-volume-group">9️⃣ <strong>Reduce the Size of a Volume Group</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgreduce vg_name /dev/sdb</span></span></code></pre></div>
+<p>Removes a physical volume from a volume group.</p>
+<h3 id="-create-a-logical-volume-lv">🔟 <strong>Create a Logical Volume (LV)</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvcreate -n lv_name -L 10G vg_name</span></span></code></pre></div>
+<p>Create a new logical volume named <code>lv_name</code> with a size of 10GB in the specified volume group <code>vg_name</code>.</p>
+<h3 id="11-display-information-about-logical-volumes">1️⃣1️⃣ <strong>Display Information about Logical Volumes</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvdisplay /dev/vg_name/lv_name</span></span></code></pre></div>
+<p>Shows detailed information about a specific logical volume.</p>
+<h3 id="12-extend-a-logical-volume">1️⃣2️⃣ <strong>Extend a Logical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvextend -L +10G /dev/vg_name/lv_name</span></span></code></pre></div>
+<p>Extend a logical volume by 10GB.</p>
+<h3 id="13-resize-a-logical-volume-after-extending">1️⃣3️⃣ <strong>Resize a Logical Volume (after extending)</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>resize2fs /dev/vg_name/lv_name</span></span></code></pre></div>
+<p>Resize the file system on a logical volume after it has been extended.</p>
+<h3 id="14-remove-a-logical-volume">1️⃣4️⃣ <strong>Remove a Logical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvremove /dev/vg_name/lv_name</span></span></code></pre></div>
+<p>Removes a specified logical volume.</p>
+<h3 id="15-remove-a-volume-group">1️⃣5️⃣ <strong>Remove a Volume Group</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgremove vg_name</span></span></code></pre></div>
+<p>Removes a specified volume group.</p>
+<h3 id="16-remove-a-physical-volume">1️⃣6️⃣ <strong>Remove a Physical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pvremove /dev/sda</span></span></code></pre></div>
+<p>Removes a physical volume, typically after removing it from the volume group.</p>
+<h3 id="17-list-all-available-lvm-commands">1️⃣7️⃣ <strong>List All Available LVM Commands</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvm</span></span></code></pre></div>
+<p>Launches the interactive LVM command-line interface.</p>
+<h3 id="18-display-lvm-system-information">1️⃣8️⃣ <strong>Display LVM System Information</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvm pvscan</span></span></code></pre></div>
+<p>Scans for physical volumes and shows details about their status.</p>
+<h3 id="19-create-a-snapshot-of-a-logical-volume">1️⃣9️⃣ <strong>Create a Snapshot of a Logical Volume</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvcreate -L 1G -s -n lv_snapshot /dev/vg_name/lv_name</span></span></code></pre></div>
+<p>Creates a snapshot of a logical volume, which can be used for backup purposes.</p>
+<h3 id="20-activate-a-volume-group">2️⃣0️⃣ <strong>Activate a Volume Group</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgchange -ay vg_name</span></span></code></pre></div>
+<p>Activates the specified volume group, making it available for use.</p>
+<h3 id="21-deactivate-a-volume-group">2️⃣1️⃣ <strong>Deactivate a Volume Group</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgchange -an vg_name</span></span></code></pre></div>
+<p>Deactivates a volume group, making it unavailable for use.</p>
+<h2 id="-swap-partitions-in-linux">🔒 <strong>Swap Partitions in Linux</strong></h2>
+<p>A <strong>swap partition</strong> is used by Linux to extend the available memory by using disk space. When the physical RAM is full, the system moves some of the inactive pages in RAM to swap space. It helps prevent the system from running out of memory and crashing. Swap partitions are particularly useful on systems with limited physical memory (RAM) or for systems running memory-intensive applications.</p>
+<h3 id="key-points-about-swap">Key Points About Swap:</h3>
+<ol>
+<li><strong>Swap Partition</strong>: A dedicated disk partition used specifically for swap space.</li>
+<li><strong>Swap File</strong>: A regular file on an existing file system used to create swap space.</li>
+<li><strong>Swapiness</strong>: A kernel parameter that determines how aggressively the kernel will use swap space. A value of 0 means the system will avoid swapping, and a value of 100 means the system will swap aggressively.</li>
+<li><strong>Performance Impact</strong>: Swap space is much slower than physical RAM, so it&rsquo;s crucial not to rely too much on it. Excessive swapping (swapping too often) can slow down system performance.</li>
+</ol>
+<h3 id="swap-space-advantages">Swap Space Advantages:</h3>
+<ul>
+<li><strong>Prevents Out of Memory Errors</strong>: Swap provides a backup when the system runs out of RAM.</li>
+<li><strong>Improved System Stability</strong>: Helps prevent crashes due to memory exhaustion.</li>
+<li><strong>Memory Management</strong>: Allows Linux to keep rarely used parts of memory in swap and free up physical RAM for active processes.</li>
+</ul>
+<hr>
+<h3 id="-commands-related-to-swap-partitions">🔒 <strong>Commands Related to Swap Partitions</strong></h3>
+<h3 id="1-check-current-swap-usage">1️⃣ <strong>Check Current Swap Usage</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>swapon -s</span></span></code></pre></div>
+<p>This command displays a summary of the current swap space in use on the system.</p>
+<h3 id="2-show-swap-information">2️⃣ <strong>Show Swap Information</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>free -h</span></span></code></pre></div>
+<p>Displays the memory and swap usage in a human-readable format, including total, used, and available swap space.</p>
+<h3 id="3-create-a-swap-partition">3️⃣ <strong>Create a Swap Partition</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fdisk /dev/sda</span></span></code></pre></div>
+<p>You can use <code>fdisk</code> to create a swap partition on a disk. This will involve creating a new partition and changing its type to swap.</p>
+<ul>
+<li>In <code>fdisk</code>, select the disk and choose the <code>n</code> option to create a new partition.</li>
+<li>Then, use the <code>t</code> command to change the partition type to <code>82</code> (Linux swap).</li>
+</ul>
+<h3 id="4-format-a-partition-as-swap">4️⃣ <strong>Format a Partition as Swap</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkswap /dev/sda3</span></span></code></pre></div>
+<p>Formats a partition (<code>/dev/sda3</code> in this case) as swap space.</p>
+<h3 id="5-enable-the-swap-partition">5️⃣ <strong>Enable the Swap Partition</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>swapon /dev/sda3</span></span></code></pre></div>
+<p>Activates the swap partition (<code>/dev/sda3</code>) for use by the system.</p>
+<h3 id="6-disable-a-swap-partition">6️⃣ <strong>Disable a Swap Partition</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>swapoff /dev/sda3</span></span></code></pre></div>
+<p>Disables a swap partition, freeing up the space for other uses.</p>
+<h3 id="7-check-swap-usage-detailed">7️⃣ <strong>Check Swap Usage (Detailed)</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /proc/meminfo | grep Swap</span></span></code></pre></div>
+<p>Shows detailed information about swap space usage from the system&rsquo;s memory information.</p>
+<h3 id="8-add-swap-space-permanently-to-etcfstab">8️⃣ <strong>Add Swap Space Permanently to <code>/etc/fstab</code></strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;/dev/sda3 none swap sw 0 0&#39;</span> | sudo tee -a /etc/fstab</span></span></code></pre></div>
+<p>This command adds the swap partition (<code>/dev/sda3</code>) to <code>/etc/fstab</code> so that it is automatically enabled at boot time.</p>
+<h3 id="9-create-a-swap-file">9️⃣ <strong>Create a Swap File</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/zero of<span style="color:#f92672">=</span>/swapfile bs<span style="color:#f92672">=</span>1M count<span style="color:#f92672">=</span><span style="color:#ae81ff">4096</span></span></span></code></pre></div>
+<p>This command creates a swap file (<code>/swapfile</code>) of 4GB (4096 MB).</p>
+<h3 id="-change-permissions-on-the-swap-file">🔟 <strong>Change Permissions on the Swap File</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod <span style="color:#ae81ff">600</span> /swapfile</span></span></code></pre></div>
+<p>Sets the appropriate permissions for the swap file to ensure that only root can access it.</p>
+<h3 id="11-make-the-swap-file">1️⃣1️⃣ <strong>Make the Swap File</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkswap /swapfile</span></span></code></pre></div>
+<p>Formats the swap file (<code>/swapfile</code>) to make it usable as swap space.</p>
+<h3 id="12-activate-the-swap-file">1️⃣2️⃣ <strong>Activate the Swap File</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>swapon /swapfile</span></span></code></pre></div>
+<p>Enables the swap file (<code>/swapfile</code>) for use.</p>
+<h3 id="13-remove-the-swap-file">1️⃣3️⃣ <strong>Remove the Swap File</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>swapoff /swapfile
+</span></span><span style="display:flex;"><span>rm /swapfile</span></span></code></pre></div>
+<p>Disables and removes the swap file from the system.</p>
+<h3 id="14-show-the-current-swappiness-setting">1️⃣4️⃣ <strong>Show the Current Swappiness Setting</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cat /proc/sys/vm/swappiness</span></span></code></pre></div>
+<p>Displays the current swappiness value, which controls how often swap space is used.</p>
+<h3 id="15-set-the-swappiness-value">1️⃣5️⃣ <strong>Set the Swappiness Value</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sysctl vm.swappiness<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span></span></span></code></pre></div>
+<p>Sets the swappiness value to 10 (lower means less aggressive swapping).</p>
+<h3 id="16-make-swappiness-value-persistent">1️⃣6️⃣ <strong>Make Swappiness Value Persistent</strong></h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;vm.swappiness = 10&#34;</span> | sudo tee -a /etc/sysctl.conf</span></span></code></pre></div>
+<p>Adds the swappiness setting to <code>/etc/sysctl.conf</code> for persistence across reboots.</p>
+<hr>
+<h3 id="-conclusion-on-swap">🔒 <strong>Conclusion on Swap</strong></h3>
+<p>Swap partitions and swap files are essential for managing memory on Linux systems, especially when running applications that consume a lot of memory. However, it’s important to monitor swap usage to avoid performance degradation due to excessive swapping. It’s best to have enough physical RAM to reduce reliance on swap space.</p>
 <h2 id="-summary">📘 Summary</h2>
 <ul>
 <li><code>lsblk</code>, <code>fdisk -l</code>, <code>df -h</code> – View disk info</li>
@@ -241,9 +453,10 @@
 <hr>
 <h2 id="-systemd-journal-logs-journald">📒 Systemd Journal Logs (<code>journald</code>)</h2>
 <h3 id="-view-logs">🔍 View Logs</h3>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>- Show all logs
-</span></span><span style="display:flex;"><span><span style="color:#e6db74">```</span>shell
-</span></span><span style="display:flex;"><span>journalctl</span></span></code></pre></div>
+<ul>
+<li>Show all logs</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>journalctl</span></span></code></pre></div>
 <ul>
 <li>Show logs for a specific service</li>
 </ul>
@@ -280,7 +493,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746885328";
+          window.index_js_url="../searchindex.en.js?1747045072";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -293,12 +506,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746885328" defer></script>
-        <script src="../js/search.js?1746885328" defer></script>
+        <script src="../js/auto-complete.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.min.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1747045072" defer></script>
+        <script src="../js/search.js?1747045072" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -315,6 +528,8 @@ Devops 60 hrs
             <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
             <li class="active " data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">Linux Disk Management: Day 04</a></li>
             <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Linux Package Management: Day 05</a></li>
+            <li class="" data-nav-id="/part06/index.html"><a class="padding" href="../part06/index.html">Day 06</a></li>
+            <li class="" data-nav-id="/part07/index.html"><a class="padding" href="../part07/index.html">Day 07</a></li>
           </ul>
         </div>
     
@@ -368,8 +583,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746885328" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746885328" defer></script>
-    <script src="../js/theme.js?1746885328" defer></script>
+    <script src="../js/clipboard.min.js?1747045072" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1747045072" defer></script>
+    <script src="../js/theme.js?1747045072" defer></script>
   </body>
 </html>

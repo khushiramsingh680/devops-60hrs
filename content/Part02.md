@@ -289,6 +289,285 @@ human-readable.
 
 
 
+# 🧪 Linux Command Line Practice Test
+
+### 1. ✅ Check the hostname of the system
+**Q:** What command is used to check the hostname of the current system?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+hostname
+```
+
+</details>
+```
+
+---
+
+### 2. 🕒 Check the current time of the system  
+**Q:** Which command displays the system's current date and time?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+date
+```
+
+</details>```
+
+---
+
+### 3. 🖥️ Change the hostname  
+**Q:** What command would you use to change the system hostname to `linuxlab`?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+sudo hostnamectl set-hostname linuxlab
+```
+
+</details>
+
+---
+
+### 4. 📁 Directory navigation  
+**Q:** Create a directory called `practice`, move into it, and list at least 3 `cd` commands to navigate.
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+mkdir practice
+cd practice
+cd ..
+cd -
+cd ~
+```
+
+</details>
+
+---
+
+### 5. 📄 Create and edit a file  
+**Q:** How do you create a file called `notes.txt`, add content using `cat`, and then edit it using `vi`?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+touch notes.txt
+cat > notes.txt
+# (Type content and press Ctrl+D)
+vi notes.txt
+# (Press 'i' to insert, Esc to exit insert, ':wq' to save and exit)
+```
+
+</details>
+
+---
+
+### 6. 💾 Check available memory  
+**Q:** Which command shows you memory usage in human-readable format?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+free -h
+```
+
+</details>
+
+---
+
+### 7. 💽 Check disk and CPU info  
+**Q:** How can you check the disk space and number of CPU cores?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+df -h      # Disk space
+nproc      # Number of CPU cores
+lscpu      # Detailed CPU info
+```
+
+</details>
+
+---
+
+### 8. 🗑️ Practice `rm` command  
+**Q:** What is the difference between `rm file.txt` and `rm -rvf dir/`?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+- `rm file.txt` removes a single file.  
+- `rm -rvf dir/` forcefully and recursively removes the directory `dir` and all its contents without confirmation.
+
+</details>
+
+---
+
+### 9. 📋 Practice `cp` command  
+**Q:** Copy `a.txt` to `b.txt`, and recursively copy a folder `dir1` to `dir2`.
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+cp a.txt b.txt
+cp -rvf dir1/ dir2/
+```
+
+</details>
+
+---
+
+### 10. 🔁 Move and rename files  
+**Q:** How do you move `temp.txt` to `/tmp` and rename `data.txt` to `archive.txt`?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+mv temp.txt /tmp/
+mv data.txt archive.txt
+```
+
+</details>
+
+---
+
+### 11. 📂 Check file systems  
+**Q:** What command lists the file systems and their types?
+
+<details>
+<summary><strong>Click to see the answer</strong></summary>
+
+```bash
+df -T
+lsblk -f
+mount | column -t
+```
+
+</details>
+
+---
+## 🧪 Linux Command Line Practice Test (Relearn Theme)
+
+### 1. ✅ Check the hostname of the system
+
+{{< expand "Q: What command is used to check the hostname of the current system?" >}}
+```bash
+hostname
+```
+{{< /expand >}}
+
+### 2. 🕒 Check the current time of the system
+
+{{< expand "Q: Which command displays the system’s current date and time?" >}}
+```bash
+date
+```
+{{< /expand >}}
+
+### 3. ✏️ Change the hostname of the system
+
+{{< expand "Q: How do you change the hostname of a Linux system temporarily?" >}}
+```bash
+sudo hostname new-hostname
+```
+{{< /expand >}}
+
+### 4. 📁 Create a directory and practice cd commands
+
+{{< expand "Q: Which command is used to create a directory and then navigate into it?" >}}
+```bash
+mkdir testdir && cd testdir
+```
+{{< /expand >}}
+
+### 5. 📝 Create a file with touch, add contents using cat, and edit with vi
+
+{{< expand "Q: How do you create a file, add contents, and open it in vi editor?" >}}
+```bash
+touch file.txt
+cat > file.txt
+vi file.txt
+```
+{{< /expand >}}
+
+### 6. 📊 Check memory available
+
+{{< expand "Q: Which command shows the available memory on the system?" >}}
+```bash
+free -h
+```
+{{< /expand >}}
+
+### 7. 💽 Check disk usage and number of CPUs
+
+{{< expand "Q: Which command shows disk usage and CPU count?" >}}
+```bash
+df -h
+nproc
+```
+{{< /expand >}}
+
+### 8. 🗑️ Practice rm and rm -rvf
+
+{{< expand "Q: How do you remove a directory and all its contents forcefully and recursively?" >}}
+```bash
+rm -rvf dir_name
+```
+{{< /expand >}}
+
+### 9. 📄 Practice cp and cp -rvf
+
+{{< expand "Q: How do you copy a directory recursively and force overwrite?" >}}
+```bash
+cp -rvf sourcedir targetdir
+```
+{{< /expand >}}
+
+### 10. 📦 Test mv command
+
+{{< expand "Q: How do you move or rename a file using mv?" >}}
+```bash
+mv oldname.txt newname.txt
+```
+{{< /expand >}}
+
+### 11. 🗃️ Check different file systems available
+
+{{< expand "Q: Which command lists mounted filesystems?" >}}
+```bash
+df -T
+```
+{{< /expand >}}
+
+
+## Lab @1
+- [ ] Login to a linux and enable password Authentication
+- [ ] Check the root home directory
+- [ ] Switch to a different user from root user
+- [ ] Set the hostname persistently across reboot 
+- [ ] Reboot system
+- [ ] Shut down vm
+- [ ] Check for how long system is running ?
+  
+
+
+
+
+
+
+
 
 
 

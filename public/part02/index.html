@@ -23,13 +23,13 @@ Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also
     <meta itemprop="name" content="Linux Basics: Day 02 :: Devops 60 hrs">
     <meta itemprop="description" content="Architecture and File Structure of Linux System Architecture RHEL Linux 9 supports x86_64 (64-bit) architecture by default. It also provides support for ARM-based systems. RHEL Linux 9 uses the Linux Kernel (typically version 5.14.x) and the systemd init system.
 Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also supports ARM and other architectures. File System Hierarchy The file structure in Rocky Linux 9 follows the Filesystem Hierarchy Standard (FHS), which is used across most Linux distributions. Here’s a breakdown of important directories:">
-    <meta itemprop="wordCount" content="988">
+    <meta itemprop="wordCount" content="1628">
     <title>Linux Basics: Day 02 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1746885328" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1746885328" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1746885328" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1746885328" rel="stylesheet">
-    <link href="../css/theme.min.css?1746885328" rel="stylesheet">
-    <link href="../css/format-html.min.css?1746885328" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1747045072" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1747045072" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1747045072" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1747045072" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1747045072" rel="stylesheet">
+    <link href="../css/theme.min.css?1747045072" rel="stylesheet">
+    <link href="../css/format-html.min.css?1747045072" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -117,6 +117,40 @@ Package Manager: dnf (Dandified Yum) System Architecture: Primarily x86_64, also
     <li><a href="#16-free-memory-usage">16. <code>free</code> (Memory Usage)</a></li>
     <li><a href="#17-uname-system-information">17. <code>uname</code> (System Information)</a></li>
     <li><a href="#18-hostname-getset-hostname">18. <code>hostname</code> (Get/Set Hostname)</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1--check-the-hostname-of-the-system">1. ✅ Check the hostname of the system</a></li>
+        <li><a href="#2--check-the-current-time-of-the-system">2. 🕒 Check the current time of the system</a></li>
+        <li><a href="#3--change-the-hostname">3. 🖥️ Change the hostname</a></li>
+        <li><a href="#4--directory-navigation">4. 📁 Directory navigation</a></li>
+        <li><a href="#5--create-and-edit-a-file">5. 📄 Create and edit a file</a></li>
+        <li><a href="#6--check-available-memory">6. 💾 Check available memory</a></li>
+        <li><a href="#7--check-disk-and-cpu-info">7. 💽 Check disk and CPU info</a></li>
+        <li><a href="#8--practice-rm-command">8. 🗑️ Practice <code>rm</code> command</a></li>
+        <li><a href="#9--practice-cp-command">9. 📋 Practice <code>cp</code> command</a></li>
+        <li><a href="#10--move-and-rename-files">10. 🔁 Move and rename files</a></li>
+        <li><a href="#11--check-file-systems">11. 📂 Check file systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#-linux-command-line-practice-test-relearn-theme">🧪 Linux Command Line Practice Test (Relearn Theme)</a>
+      <ul>
+        <li><a href="#1--check-the-hostname-of-the-system-1">1. ✅ Check the hostname of the system</a></li>
+        <li><a href="#2--check-the-current-time-of-the-system-1">2. 🕒 Check the current time of the system</a></li>
+        <li><a href="#3--change-the-hostname-of-the-system">3. ✏️ Change the hostname of the system</a></li>
+        <li><a href="#4--create-a-directory-and-practice-cd-commands">4. 📁 Create a directory and practice cd commands</a></li>
+        <li><a href="#5--create-a-file-with-touch-add-contents-using-cat-and-edit-with-vi">5. 📝 Create a file with touch, add contents using cat, and edit with vi</a></li>
+        <li><a href="#6--check-memory-available">6. 📊 Check memory available</a></li>
+        <li><a href="#7--check-disk-usage-and-number-of-cpus">7. 💽 Check disk usage and number of CPUs</a></li>
+        <li><a href="#8--practice-rm-and-rm--rvf">8. 🗑️ Practice rm and rm -rvf</a></li>
+        <li><a href="#9--practice-cp-and-cp--rvf">9. 📄 Practice cp and cp -rvf</a></li>
+        <li><a href="#10--test-mv-command">10. 📦 Test mv command</a></li>
+        <li><a href="#11--check-different-file-systems-available">11. 🗃️ Check different file systems available</a></li>
+      </ul>
+    </li>
+    <li><a href="#lab-1">Lab @1</a></li>
   </ul>
 </nav>
                 </div>
@@ -499,6 +533,258 @@ human-readable.</p>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ hostname</span></span></code></pre></div>
 </li>
 </ul>
+<h1 id="-linux-command-line-practice-test">🧪 Linux Command Line Practice Test</h1>
+<h3 id="1--check-the-hostname-of-the-system">1. ✅ Check the hostname of the system</h3>
+<p><strong>Q:</strong> What command is used to check the hostname of the current system?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hostname</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="2--check-the-current-time-of-the-system">2. 🕒 Check the current time of the system</h3>
+<p><strong>Q:</strong> Which command displays the system&rsquo;s current date and time?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>date</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="3--change-the-hostname">3. 🖥️ Change the hostname</h3>
+<p><strong>Q:</strong> What command would you use to change the system hostname to <code>linuxlab</code>?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo hostnamectl set-hostname linuxlab</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="4--directory-navigation">4. 📁 Directory navigation</h3>
+<p><strong>Q:</strong> Create a directory called <code>practice</code>, move into it, and list at least 3 <code>cd</code> commands to navigate.</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir practice
+</span></span><span style="display:flex;"><span>cd practice
+</span></span><span style="display:flex;"><span>cd ..
+</span></span><span style="display:flex;"><span>cd -
+</span></span><span style="display:flex;"><span>cd ~</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="5--create-and-edit-a-file">5. 📄 Create and edit a file</h3>
+<p><strong>Q:</strong> How do you create a file called <code>notes.txt</code>, add content using <code>cat</code>, and then edit it using <code>vi</code>?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch notes.txt
+</span></span><span style="display:flex;"><span>cat &gt; notes.txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (Type content and press Ctrl+D)</span>
+</span></span><span style="display:flex;"><span>vi notes.txt
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (Press &#39;i&#39; to insert, Esc to exit insert, &#39;:wq&#39; to save and exit)</span></span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="6--check-available-memory">6. 💾 Check available memory</h3>
+<p><strong>Q:</strong> Which command shows you memory usage in human-readable format?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>free -h</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="7--check-disk-and-cpu-info">7. 💽 Check disk and CPU info</h3>
+<p><strong>Q:</strong> How can you check the disk space and number of CPU cores?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>df -h      <span style="color:#75715e"># Disk space</span>
+</span></span><span style="display:flex;"><span>nproc      <span style="color:#75715e"># Number of CPU cores</span>
+</span></span><span style="display:flex;"><span>lscpu      <span style="color:#75715e"># Detailed CPU info</span></span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="8--practice-rm-command">8. 🗑️ Practice <code>rm</code> command</h3>
+<p><strong>Q:</strong> What is the difference between <code>rm file.txt</code> and <code>rm -rvf dir/</code>?</p>
+<!-- raw HTML omitted -->
+<ul>
+<li><code>rm file.txt</code> removes a single file.</li>
+<li><code>rm -rvf dir/</code> forcefully and recursively removes the directory <code>dir</code> and all its contents without confirmation.</li>
+</ul>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="9--practice-cp-command">9. 📋 Practice <code>cp</code> command</h3>
+<p><strong>Q:</strong> Copy <code>a.txt</code> to <code>b.txt</code>, and recursively copy a folder <code>dir1</code> to <code>dir2</code>.</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp a.txt b.txt
+</span></span><span style="display:flex;"><span>cp -rvf dir1/ dir2/</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="10--move-and-rename-files">10. 🔁 Move and rename files</h3>
+<p><strong>Q:</strong> How do you move <code>temp.txt</code> to <code>/tmp</code> and rename <code>data.txt</code> to <code>archive.txt</code>?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mv temp.txt /tmp/
+</span></span><span style="display:flex;"><span>mv data.txt archive.txt</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h3 id="11--check-file-systems">11. 📂 Check file systems</h3>
+<p><strong>Q:</strong> What command lists the file systems and their types?</p>
+<!-- raw HTML omitted -->
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>df -T
+</span></span><span style="display:flex;"><span>lsblk -f
+</span></span><span style="display:flex;"><span>mount | column -t</span></span></code></pre></div>
+<!-- raw HTML omitted -->
+<hr>
+<h2 id="-linux-command-line-practice-test-relearn-theme">🧪 Linux Command Line Practice Test (Relearn Theme)</h2>
+<h3 id="1--check-the-hostname-of-the-system-1">1. ✅ Check the hostname of the system</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: What command is used to check the hostname of the current system?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+hostname
+```
+  </div>
+</details>
+<h3 id="2--check-the-current-time-of-the-system-1">2. 🕒 Check the current time of the system</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: Which command displays the system’s current date and time?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+date
+```
+  </div>
+</details>
+<h3 id="3--change-the-hostname-of-the-system">3. ✏️ Change the hostname of the system</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: How do you change the hostname of a Linux system temporarily?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+sudo hostname new-hostname
+```
+  </div>
+</details>
+<h3 id="4--create-a-directory-and-practice-cd-commands">4. 📁 Create a directory and practice cd commands</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: Which command is used to create a directory and then navigate into it?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+mkdir testdir && cd testdir
+```
+  </div>
+</details>
+<h3 id="5--create-a-file-with-touch-add-contents-using-cat-and-edit-with-vi">5. 📝 Create a file with touch, add contents using cat, and edit with vi</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: How do you create a file, add contents, and open it in vi editor?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+touch file.txt
+cat > file.txt
+vi file.txt
+```
+  </div>
+</details>
+<h3 id="6--check-memory-available">6. 📊 Check memory available</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: Which command shows the available memory on the system?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+free -h
+```
+  </div>
+</details>
+<h3 id="7--check-disk-usage-and-number-of-cpus">7. 💽 Check disk usage and number of CPUs</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: Which command shows disk usage and CPU count?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+df -h
+nproc
+```
+  </div>
+</details>
+<h3 id="8--practice-rm-and-rm--rvf">8. 🗑️ Practice rm and rm -rvf</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: How do you remove a directory and all its contents forcefully and recursively?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+rm -rvf dir_name
+```
+  </div>
+</details>
+<h3 id="9--practice-cp-and-cp--rvf">9. 📄 Practice cp and cp -rvf</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: How do you copy a directory recursively and force overwrite?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+cp -rvf sourcedir targetdir
+```
+  </div>
+</details>
+<h3 id="10--test-mv-command">10. 📦 Test mv command</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: How do you move or rename a file using mv?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+mv oldname.txt newname.txt
+```
+  </div>
+</details>
+<h3 id="11--check-different-file-systems-available">11. 🗃️ Check different file systems available</h3>
+
+<details class=" box cstyle notices transparent expand">
+  <summary class="box-label">
+    <i class="expander-icon fa-fw fas fa-chevron-right"></i> 
+    Q: Which command lists mounted filesystems?
+  </summary>
+  <div class="box-content">
+<p>
+```bash
+df -T
+```
+  </div>
+</details>
+<h2 id="lab-1">Lab @1</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Login to a linux and enable password Authentication</li>
+<li><input disabled="" type="checkbox"> Check the root home directory</li>
+<li><input disabled="" type="checkbox"> Switch to a different user from root user</li>
+<li><input disabled="" type="checkbox"> Set the hostname persistently across reboot</li>
+<li><input disabled="" type="checkbox"> Reboot system</li>
+<li><input disabled="" type="checkbox"> Shut down vm</li>
+<li><input disabled="" type="checkbox"> Check for how long system is running ?</li>
+</ul>
 
   <footer class="footline">
   </footer>
@@ -515,7 +801,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1746885328";
+          window.index_js_url="../searchindex.en.js?1747045072";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -528,12 +814,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.min.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1746885328" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1746885328" defer></script>
-        <script src="../js/search.js?1746885328" defer></script>
+        <script src="../js/auto-complete.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.min.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1747045072" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1747045072" defer></script>
+        <script src="../js/search.js?1747045072" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -550,6 +836,8 @@ Devops 60 hrs
             <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">User, Group and Permissions: Day 03</a></li>
             <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">Linux Disk Management: Day 04</a></li>
             <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Linux Package Management: Day 05</a></li>
+            <li class="" data-nav-id="/part06/index.html"><a class="padding" href="../part06/index.html">Day 06</a></li>
+            <li class="" data-nav-id="/part07/index.html"><a class="padding" href="../part07/index.html">Day 07</a></li>
           </ul>
         </div>
     
@@ -603,8 +891,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1746885328" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1746885328" defer></script>
-    <script src="../js/theme.js?1746885328" defer></script>
+    <script src="../js/clipboard.min.js?1747045072" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1747045072" defer></script>
+    <script src="../js/theme.js?1747045072" defer></script>
   </body>
 </html>
