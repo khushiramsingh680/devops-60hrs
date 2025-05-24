@@ -5,18 +5,22 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.4">
     <meta name="generator" content="Relearn 7.2.1+f1701957c30daae7cd133bec5a7968480563ce9f">
-    <meta name="description" content="">
+    <meta name="description" content="1. Getting Started with Ansible Overview on Ansible Why use Ansible 2. Ansible Architecture Control node Managed nodes Inventory Modules Tasks Playbooks Lab Environment 3. Pre-requisites to Setup Ansible Control node requirements Managed node requirements Update /etc/hosts on all the hosts Install mandatory pre-requisites on Ansible client nodes 4. Installing Ansible Install using package manager on RHEL 8 Install using package manager on CentOS 8 Install using pip 5. Configuring Ansible Create normal user Configure password-less authentication Verify password-less SSH authentication Configure privilege escalation using sudo Verify Ansible connectivity Total Duration: 8 hrs">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Tags :: Devops 60 hrs">
-    <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/tags/index.html">
+    <meta name="twitter:title" content="Ansible :: Devops 60 hrs">
+    <meta name="twitter:description" content="1. Getting Started with Ansible Overview on Ansible Why use Ansible 2. Ansible Architecture Control node Managed nodes Inventory Modules Tasks Playbooks Lab Environment 3. Pre-requisites to Setup Ansible Control node requirements Managed node requirements Update /etc/hosts on all the hosts Install mandatory pre-requisites on Ansible client nodes 4. Installing Ansible Install using package manager on RHEL 8 Install using package manager on CentOS 8 Install using pip 5. Configuring Ansible Create normal user Configure password-less authentication Verify password-less SSH authentication Configure privilege escalation using sudo Verify Ansible connectivity Total Duration: 8 hrs">
+    <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/ansible/index.html">
     <meta property="og:site_name" content="Devops 60 hrs">
-    <meta property="og:title" content="Tags :: Devops 60 hrs">
+    <meta property="og:title" content="Ansible :: Devops 60 hrs">
+    <meta property="og:description" content="1. Getting Started with Ansible Overview on Ansible Why use Ansible 2. Ansible Architecture Control node Managed nodes Inventory Modules Tasks Playbooks Lab Environment 3. Pre-requisites to Setup Ansible Control node requirements Managed node requirements Update /etc/hosts on all the hosts Install mandatory pre-requisites on Ansible client nodes 4. Installing Ansible Install using package manager on RHEL 8 Install using package manager on CentOS 8 Install using pip 5. Configuring Ansible Create normal user Configure password-less authentication Verify password-less SSH authentication Configure privilege escalation using sudo Verify Ansible connectivity Total Duration: 8 hrs">
     <meta property="og:locale" content="en_us">
-    <meta property="og:type" content="website">
-    <meta itemprop="name" content="Tags :: Devops 60 hrs">
-    <title>Tags :: Devops 60 hrs</title>
-    <link href="../tags/index.xml" rel="alternate" type="application/rss+xml" title="Tags :: Devops 60 hrs">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="Devops 60 hrs">
+    <meta itemprop="name" content="Ansible :: Devops 60 hrs">
+    <meta itemprop="description" content="1. Getting Started with Ansible Overview on Ansible Why use Ansible 2. Ansible Architecture Control node Managed nodes Inventory Modules Tasks Playbooks Lab Environment 3. Pre-requisites to Setup Ansible Control node requirements Managed node requirements Update /etc/hosts on all the hosts Install mandatory pre-requisites on Ansible client nodes 4. Installing Ansible Install using package manager on RHEL 8 Install using package manager on CentOS 8 Install using pip 5. Configuring Ansible Create normal user Configure password-less authentication Verify password-less SSH authentication Configure privilege escalation using sudo Verify Ansible connectivity Total Duration: 8 hrs">
+    <meta itemprop="wordCount" content="478">
+    <title>Ansible :: Devops 60 hrs</title>
     <link href="../css/fontawesome-all.min.css?1748102986" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1748102986" rel="stylesheet"></noscript>
     <link href="../css/auto-complete.css?1748102986" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1748102986" rel="stylesheet"></noscript>
     <link href="../css/perfect-scrollbar.min.css?1748102986" rel="stylesheet">
@@ -70,7 +74,7 @@
       window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
   </head>
-  <body class="mobile-support html" data-url="../tags/index.html">
+  <body class="mobile-support html" data-url="../ansible/index.html">
     <div id="R-body" class="default-animation">
       <div id="R-body-overlay"></div>
       <nav id="R-topbar">
@@ -81,16 +85,38 @@
             </div>
             <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
               <div class="topbar-content">
-                <div class="topbar-content-wrapper"> 
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#1-getting-started-with-ansible">1. Getting Started with Ansible</a></li>
+    <li><a href="#2-ansible-architecture">2. Ansible Architecture</a></li>
+    <li><a href="#3-pre-requisites-to-setup-ansible">3. Pre-requisites to Setup Ansible</a></li>
+    <li><a href="#4-installing-ansible">4. Installing Ansible</a></li>
+    <li><a href="#5-configuring-ansible">5. Configuring Ansible</a></li>
+    <li><a href="#6-ansible-configuration-file-ansiblecfg">6. Ansible Configuration File (<code>ansible.cfg</code>)</a></li>
+    <li><a href="#7-using-ansible-ad-hoc-commands">7. Using Ansible Ad-hoc Commands</a></li>
+    <li><a href="#8-ansible-inventory-files">8. Ansible Inventory Files</a></li>
+    <li><a href="#9-working-with-managed-nodes-without-python">9. Working with Managed Nodes Without Python</a></li>
+    <li><a href="#10-working-with-managed-nodes-with-password-not-passphrase">10. Working with Managed Nodes with Password (Not Passphrase)</a></li>
+    <li><a href="#11-jinja2-templates-and-syntax">11. Jinja2 Templates and Syntax</a></li>
+    <li><a href="#12-ansible-facts">12. Ansible Facts</a></li>
+    <li><a href="#13-ansible-variables-and-data-types">13. Ansible Variables and Data Types</a></li>
+    <li><a href="#14-yaml-syntax-in-ansible-playbooks">14. YAML Syntax in Ansible Playbooks</a></li>
+    <li><a href="#15-introduction-to-ansible-playbooks">15. Introduction to Ansible Playbooks</a></li>
+    <li><a href="#16-use-visual-code-studio-to-write-playbooks-gui">16. Use Visual Code Studio to Write Playbooks (GUI)</a></li>
+    <li><a href="#17-using-operators-in-ansible">17. Using Operators in Ansible</a></li>
+    <li><a href="#18-ansible-conditional-statements">18. Ansible Conditional Statements</a></li>
+  </ul>
+</nav>
                 </div>
               </div>
             </div>
           </div>
           <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Tags</span><meta itemprop="position" content="1"></li>
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Ansible</span><meta itemprop="position" content="1"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../index.html" title="Devops 60 hrs (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part07/index.html" title="Day 07 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
             </div>
@@ -106,13 +132,160 @@
         </div>
       </nav>
       <div id="R-main-overlay"></div>
-      <main id="R-body-inner" class="highlightable tags" tabindex="-1">
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
         <div class="flex-block-wrapper">
-<article>
+<article class="default">
   <header class="headline">
   </header>
-<h1 id="tags">Tags</h1>
 
+<h1 id="ansible">Ansible</h1>
+
+<hr>
+<h2 id="1-getting-started-with-ansible">1. Getting Started with Ansible</h2>
+<ul>
+<li>Overview on Ansible</li>
+<li>Why use Ansible</li>
+</ul>
+<h2 id="2-ansible-architecture">2. Ansible Architecture</h2>
+<ul>
+<li>Control node</li>
+<li>Managed nodes</li>
+<li>Inventory</li>
+<li>Modules</li>
+<li>Tasks</li>
+<li>Playbooks</li>
+<li>Lab Environment</li>
+</ul>
+<h2 id="3-pre-requisites-to-setup-ansible">3. Pre-requisites to Setup Ansible</h2>
+<ul>
+<li>Control node requirements</li>
+<li>Managed node requirements</li>
+<li>Update <code>/etc/hosts</code> on all the hosts</li>
+<li>Install mandatory pre-requisites on Ansible client nodes</li>
+</ul>
+<h2 id="4-installing-ansible">4. Installing Ansible</h2>
+<ul>
+<li>Install using package manager on RHEL 8</li>
+<li>Install using package manager on CentOS 8</li>
+<li>Install using pip</li>
+</ul>
+<h2 id="5-configuring-ansible">5. Configuring Ansible</h2>
+<ul>
+<li>Create normal user</li>
+<li>Configure password-less authentication</li>
+<li>Verify password-less SSH authentication</li>
+<li>Configure privilege escalation using sudo</li>
+<li>Verify Ansible connectivity</li>
+</ul>
+<p><strong>Total Duration:</strong> 8 hrs</p>
+<h2 id="6-ansible-configuration-file-ansiblecfg">6. Ansible Configuration File (<code>ansible.cfg</code>)</h2>
+<ul>
+<li><code>[defaults]</code> section</li>
+<li><code>[ssh_connection]</code> section</li>
+<li><code>[persistent_connection]</code> section</li>
+<li><code>[colors]</code> section</li>
+</ul>
+<h2 id="7-using-ansible-ad-hoc-commands">7. Using Ansible Ad-hoc Commands</h2>
+<ul>
+<li>Overview</li>
+<li>Sample ad-hoc command examples</li>
+<li>How Ansible works with modules</li>
+<li>Control the number of hosts for parallel execution (forks)</li>
+<li>Transfer file from Ansible Engine to Managed Nodes</li>
+<li>Download file from managed nodes to controller node</li>
+<li>Copy files locally on the remote server (managed node)</li>
+<li>Create or Remove file and directory</li>
+<li>Remove a file from the managed nodes</li>
+<li>Execute commands with root privileges</li>
+<li>Working with packages using <code>yum</code> module</li>
+<li>Execute ad-hoc commands as different user</li>
+</ul>
+<h2 id="8-ansible-inventory-files">8. Ansible Inventory Files</h2>
+<ul>
+<li>Dynamic inventory</li>
+<li>Static inventory</li>
+<li>Provide hosts as an input argument</li>
+<li>Groups in an inventory file</li>
+<li>Groups of groups</li>
+<li>Regular expressions with an inventory file</li>
+<li>Variables in inventory</li>
+</ul>
+<h2 id="9-working-with-managed-nodes-without-python">9. Working with Managed Nodes Without Python</h2>
+<p><strong>Total Duration:</strong> 8 hrs</p>
+<h2 id="10-working-with-managed-nodes-with-password-not-passphrase">10. Working with Managed Nodes with Password (Not Passphrase)</h2>
+<h2 id="11-jinja2-templates-and-syntax">11. Jinja2 Templates and Syntax</h2>
+<ul>
+<li>Variables</li>
+<li>Use built-in filters</li>
+<li>Configure VSFTPD using Jinja2 templates</li>
+</ul>
+<h2 id="12-ansible-facts">12. Ansible Facts</h2>
+<ul>
+<li>System default facts</li>
+<li>User defined facts</li>
+</ul>
+<h2 id="13-ansible-variables-and-data-types">13. Ansible Variables and Data Types</h2>
+<ul>
+<li>Creating valid variable names</li>
+<li>Built-in variables</li>
+<li>Defining variables in inventory</li>
+<li>Defining variable in project</li>
+<li>Defining variables in playbook</li>
+<li>Defining variables using command line</li>
+<li>Accessing variables</li>
+<li>Using <code>register</code> module to store output of any command</li>
+<li>Using <code>set_fact</code> module to create a new variable</li>
+<li>Prompt for user input with <code>vars_prompt</code></li>
+<li>Read and access variables from separate YAML or JSON file</li>
+<li>Precedence</li>
+</ul>
+<h2 id="14-yaml-syntax-in-ansible-playbooks">14. YAML Syntax in Ansible Playbooks</h2>
+<ul>
+<li>What is YAML?</li>
+<li>YAML file formatting</li>
+<li>Create or Modify <code>.vimrc</code></li>
+<li>Constructing your Ansible playbook</li>
+</ul>
+<p><strong>Total Duration:</strong> 8 hrs</p>
+<h2 id="15-introduction-to-ansible-playbooks">15. Introduction to Ansible Playbooks</h2>
+<ul>
+<li>What are Ansible Playbooks</li>
+<li><strong>Examples</strong>
+<ul>
+<li>Example-1: Your first playbook to install single package</li>
+<li>Example-2: Install multiple packages on different managed nodes</li>
+<li>Example-3: Disable gathering facts module</li>
+<li>Example-4: Assign custom name to the play and tasks</li>
+<li>Example-5: Execute playbook as shell scripts</li>
+<li>Example-6: Print debug message with playbooks</li>
+<li>Example-7: Increase verbosity level of playbook</li>
+<li>Example-8: Perform syntax check</li>
+<li>Example-9: Perform dry run of playbooks</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-use-visual-code-studio-to-write-playbooks-gui">16. Use Visual Code Studio to Write Playbooks (GUI)</h2>
+<ul>
+<li>Download Visual Studio Code Repo</li>
+<li>Access Visual Code Studio</li>
+<li>Install Ansible Extension</li>
+<li>Configure Visual Studio to use Ansible</li>
+<li>Create playbook using Visual Studio</li>
+</ul>
+<h2 id="17-using-operators-in-ansible">17. Using Operators in Ansible</h2>
+<ul>
+<li>Arithmetic Operators</li>
+<li>Comparison Operators</li>
+<li>Test Operators</li>
+<li>Logical Operators</li>
+</ul>
+<h2 id="18-ansible-conditional-statements">18. Ansible Conditional Statements</h2>
+<ul>
+<li>Using <code>when</code> statement</li>
+<li>Using <code>failed_when</code> statement</li>
+<li>Print message with <code>fail</code></li>
+<li>Using <code>changed_when</code> statement</li>
+</ul>
 
   <footer class="footline">
   </footer>
@@ -168,7 +341,7 @@ Devops 60 hrs
             <li class="" data-nav-id="/part06/index.html"><a class="padding" href="../part06/index.html">Day 06</a></li>
             <li class="" data-nav-id="/kubernetes/index.html"><a class="padding" href="../kubernetes/index.html">Day 07</a></li>
             <li class="" data-nav-id="/part07/index.html"><a class="padding" href="../part07/index.html">Day 07</a></li>
-            <li class="" data-nav-id="/ansible/index.html"><a class="padding" href="../ansible/index.html">Ansible</a></li>
+            <li class="active " data-nav-id="/ansible/index.html"><a class="padding" href="../ansible/index.html">Ansible</a></li>
           </ul>
         </div>
     
@@ -184,7 +357,7 @@ Devops 60 hrs
                   <div class="control-style">
                     <label class="a11y-only" for="R-select-language">Language</label>
                     <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
-                      <option id="R-select-language-en" value="#R-select-language-en" data-url="../tags/index.html" lang="en-us" selected></option>
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="../ansible/index.html" lang="en-us" selected></option>
                     </select>
                   </div>
                   <div class="clear"></div>

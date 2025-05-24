@@ -6,20 +6,29 @@ weight = 4
  
 ---
 ## Topics
+- **[Recap](#recap)**
 - **[Checking Exisitng disk](#-1-listing-disks-and-partitions)**
 - **[Partiotion a Disk](#-2-partitioning-disks)**
 - **[Mounting a disk after format](#-4-mounting-and-unmounting-disks)**
 - **[Introduction to LVM](#-introduction-to-lvm-logical-volume-management)**
 - **[Swap Partition](#-swap-partitions-in-linux)**
 - **[Loging Overview](#-rhel-8-logging-overview)**
+
+## Recap
+- [ ] Umask usgae( to control the default permission)
+- [ ] Log into the Vagrant virtual machine using the default SSH private key.
+  ```ruby
+  .vagrant/machines/<machine-name>/<provider>/private_key
+  ssh -i <privatekey> <user-name>/ip
+  ```
+- [ ] Convert the private key .pem file into ppk to login with putty.
+- [ ] Test the port forward on Virtualbox
+- [ ] Test the port forward on Putty
 ## 📂 1. Listing Disks and Partitions
-
 ### View all block devices:
-
 ```bash
 lsblk
 ```
-
 ### Show detailed partition table:
 
 ```bash
@@ -411,9 +420,6 @@ Adds the swappiness setting to `/etc/sysctl.conf` for persistence across reboots
 
 Swap partitions and swap files are essential for managing memory on Linux systems, especially when running applications that consume a lot of memory. However, it’s important to monitor swap usage to avoid performance degradation due to excessive swapping. It’s best to have enough physical RAM to reduce reliance on swap space.
 
-
-
-
 ## 📘 Summary
 
 - `lsblk`, `fdisk -l`, `df -h` – View disk info
@@ -424,7 +430,7 @@ Swap partitions and swap files are essential for managing memory on Linux system
 
 Linux disk management is critical for system setup, storage provisioning, and data integrity.
 
-# 🧾 RHEL 8 Logging Overview
+# 🧾 RHEL OS Logging Overview
 
 RHEL 8 uses **`systemd-journald`** for system logs and **`rsyslog`** for traditional log file storage. Understanding both is essential for troubleshooting and auditing.
 
