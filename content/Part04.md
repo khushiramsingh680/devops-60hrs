@@ -22,14 +22,50 @@ weight = 4
   ssh -i <privatekey> <user-name>/ip
   ```
 - [ ] Convert the private key .pem file into ppk to login with putty.
+- [ ] Login to 3rd server but private key is on 1st server 
+     - **🔐 SSH into a Third Server When Private Key Is on First Server (Using Agent Forwarding)**
+
+    ### 🧭 Scenario
+    You want to SSH into **Server C** from **Server A**, but the **SSH private key is only on your local machine (Laptop)**. You don't want to copy the key to Server A for security reasons.
+
+    ---
+
+    ### ✅ Solution: SSH Agent Forwarding
+
+    This allows you to forward your SSH key securely from your **Laptop → Server A → Server C** without ever copying the private key.
+
+    ---
+
+    ### 📝 Steps
+
+    - [ ]  **Start SSH Agent on Your Local Machine**
+
+    ```bash
+    eval "$(ssh-agent -s)"
+    ssh-add /path/to/your/private_key
+    ```
+    - [ ] Check loaded keys:
+    ```bash
+     ssh-add -l
+
+   ```
+   - [ ] SSH into Server A with Agent Forwarding Enabled
+   ```bash
+    ssh -A user@serverA
+  ```
+  - [ ] From Server A, SSH into Server C
+  ```bash
+  ssh user@serverC
+  ```
+
 - [ ] Test the port forward on Virtualbox
 - [ ] Test the port forward on Putty
-## 📂 1. Listing Disks and Partitions
-### View all block devices:
+### 📂 1. Listing Disks and Partitions
+#### View all block devices:
 ```bash
 lsblk
 ```
-### Show detailed partition table:
+#### Show detailed partition table:
 
 ```bash
 fdisk -l

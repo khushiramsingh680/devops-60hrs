@@ -8,13 +8,6 @@
     <language>en-us</language>
     <atom:link href="https://github.com/khushiramsingh680/devops-60hrs/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Devops Discussion</title>
-      <link>https://github.com/khushiramsingh680/devops-60hrs/planning/index.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/khushiramsingh680/devops-60hrs/planning/index.html</guid>
-      <description>Devops Discussion: Linux Administration&#xA;Most frequently commands Performance Management Disk Management File management User , Group and Permission Management Linux Package Management Linux Mmonitoring Linux Networking and Service Management Linux Virtulization Automation using Ansible&#xA;Need of Ansible&#xA;Ansible inventory&#xA;Ansible and Python history&#xA;Ansible Ad hoc commands&#xA;Ansible Variable at different leveles&#xA;At inventory At adhoc command At playbook Ansible Playbook&#xA;Ansible roles&#xA;Ansible vault&#xA;Ansible jinja template&#xA;Ansible Tower/AWX</description>
-    </item>
-    <item>
       <title>Vagrant: Day 01</title>
       <link>https://github.com/khushiramsingh680/devops-60hrs/part01/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -40,7 +33,7 @@
       <link>https://github.com/khushiramsingh680/devops-60hrs/part04/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part04/index.html</guid>
-      <description>Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission) Log into the Vagrant virtual machine using the default SSH private key. .vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty. Test the port forward on Virtualbox Test the port forward on Putty 📂 1. Listing Disks and Partitions View all block devices: lsblk Show detailed partition table: fdisk -l View disk usage: df -h View inode usage: df -i 🧱 2. Partitioning Disks Using fdisk (for MBR-style partitions): sudo fdisk /dev/sdX # n -&gt; new partition # p -&gt; primary # w -&gt; write changes 🛠️ 3. Creating Filesystems Create ext4 filesystem: sudo mkfs.ext4 /dev/sdX1 Create xfs filesystem: sudo mkfs.xfs /dev/sdX1 📦 4. Mounting and Unmounting Disks Create a mount point and mount: sudo mkdir /mnt/data sudo mount /dev/sdX1 /mnt/data Unmount: sudo umount /mnt/data View mounted filesystems: mount | grep sd 🔁 5. Persistent Mounting with /etc/fstab Get UUID: blkid /dev/sdX1 Edit /etc/fstab: UUID=xxxx-xxxx /mnt/data ext4 defaults 0 2 Then run:</description>
+      <description>Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission)&#xA;Log into the Vagrant virtual machine using the default SSH private key.&#xA;.vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.&#xA;Login to 3rd server but private key is on 1st server</description>
     </item>
     <item>
       <title>Linux Package Management: Day 05</title>
