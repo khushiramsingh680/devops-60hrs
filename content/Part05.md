@@ -217,6 +217,103 @@ gpgcheck=0
 | Zypper| openSUSE                 | `zypper install`, `zypper remove`, `update` |
 
 Linux package management ensures reliable and secure software deployment.
+## 🛠️ How to Create a Local YUM Repository Using an ISO
+
+This guide explains how to set up a local YUM repository from an ISO file on RHEL, CentOS, AlmaLinux, or Rocky Linux.
+
+---
+
+## 📥 1. Mount the ISO File
+
+```bash
+mkdir -p /mnt/iso
+mount -o loop /dev/sr0 /mnt/iso
+```
+## 📂 2. Copy ISO Contents (Optional but Recommended)
+
+```bash
+mkdir -p /var/www/html/yumrepo
+cp -av /mnt/iso/* /var/www/html/yumrepo/
+umount /mnt/iso
+```
+
+> This step ensures the repository is persistent across reboots.
+
+---
+
+## 📝 3. Create the Local Repo File
+
+Create a new file `/etc/yum.repos.d/local.repo` with the following content:
+
+### ✅ If you copied the ISO contents:
+
+```ini
+[LocalRepo]
+name=Local Repository
+baseurl=file:///var/www/html/yumrepo
+enabled=1
+gpgcheck=0
+```
+
+### 🔁 If using the ISO directly (without copying):
+
+```ini
+[LocalRepo]
+name=Local Repository
+baseurl=file:///mnt/iso
+enabled=1
+gpgcheck=0
+```
+- **Example is given below:**
+
+![VM](/images/yum.png)
+---
+
+## 🔄 4. Clean YUM and Check the Repository
+
+```bash
+yum clean all
+yum repolist
+```
+
+You should now see `LocalRepo` listed in the repository list.
+
+---
+
+## 🌐 5. (Optional) Serve the Repo via HTTP
+
+This is useful if you want to share the repo with other machines.
+
+### Install Apache:
+
+```bash
+yum install -y httpd
+systemctl enable --now httpd
+```
+
+### Allow Apache Access with SELinux (if enabled):
+
+```bash
+chcon -R -t httpd_sys_content_t /var/www/html/yumrepo
+```
+
+### Update the Repo File:
+
+Edit `/etc/yum.repos.d/local.repo` to use HTTP:
+
+```ini
+[LocalRepo]
+name=Local Repository
+baseurl=http://localhost/yumrepo
+enabled=1
+gpgcheck=0
+```
+
+---
+
+## ✅ Done!
+
+You now have a local YUM repository set up using an ISO image. You can use it offline, or serve it to multiple machines via HTTP.
 
 ## 📊 Linux Monitoring
 

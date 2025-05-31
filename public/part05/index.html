@@ -23,13 +23,13 @@
     <meta itemprop="name" content="Linux Package Management: Day 05 :: Devops 60 hrs">
     <meta itemprop="description" content="📦 What is Package Management? Linux uses package managers to install, update, and remove software efficiently while resolving dependencies.
 🧰 1. Debian/Ubuntu: apt (Advanced Package Tool) Update package list: sudo apt update Upgrade packages: sudo apt upgrade Install a package: sudo apt install package-name Remove a package: sudo apt remove package-name Remove unused packages: sudo apt autoremove Search for a package: apt search nginx 🍱 2. RHEL/CentOS/Rocky: yum and dnf On RHEL 8&#43; and Fedora, use dnf instead of yum.">
-    <meta itemprop="wordCount" content="696">
+    <meta itemprop="wordCount" content="925">
     <title>Linux Package Management: Day 05 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1748183144" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1748183144" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1748183144" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1748183144" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1748183144" rel="stylesheet">
-    <link href="../css/theme.min.css?1748183144" rel="stylesheet">
-    <link href="../css/format-html.min.css?1748183144" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1748692953" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1748692953" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1748692953" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1748692953" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1748692953" rel="stylesheet">
+    <link href="../css/theme.min.css?1748692953" rel="stylesheet">
+    <link href="../css/format-html.min.css?1748692953" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -141,6 +141,25 @@
       </ul>
     </li>
     <li><a href="#-summary">✅ Summary</a></li>
+    <li><a href="#-how-to-create-a-local-yum-repository-using-an-iso">🛠️ How to Create a Local YUM Repository Using an ISO</a></li>
+    <li><a href="#-1-mount-the-iso-file">📥 1. Mount the ISO File</a></li>
+    <li><a href="#-2-copy-iso-contents-optional-but-recommended">📂 2. Copy ISO Contents (Optional but Recommended)</a></li>
+    <li><a href="#-3-create-the-local-repo-file">📝 3. Create the Local Repo File</a>
+      <ul>
+        <li><a href="#-if-you-copied-the-iso-contents">✅ If you copied the ISO contents:</a></li>
+        <li><a href="#-if-using-the-iso-directly-without-copying">🔁 If using the ISO directly (without copying):</a></li>
+      </ul>
+    </li>
+    <li><a href="#vmimagesyumpng"><img src="../images/yum.png" alt="VM"></a></li>
+    <li><a href="#-4-clean-yum-and-check-the-repository">🔄 4. Clean YUM and Check the Repository</a></li>
+    <li><a href="#-5-optional-serve-the-repo-via-http">🌐 5. (Optional) Serve the Repo via HTTP</a>
+      <ul>
+        <li><a href="#install-apache">Install Apache:</a></li>
+        <li><a href="#allow-apache-access-with-selinux-if-enabled">Allow Apache Access with SELinux (if enabled):</a></li>
+        <li><a href="#update-the-repo-file">Update the Repo File:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-done">✅ Done!</a></li>
     <li><a href="#-linux-monitoring">📊 Linux Monitoring</a>
       <ul>
         <li><a href="#-1-cpu-and-memory-monitoring">🧠 1. <strong>CPU and Memory Monitoring</strong></a></li>
@@ -333,6 +352,61 @@
   </tbody>
 </table>
 <p>Linux package management ensures reliable and secure software deployment.</p>
+<h2 id="-how-to-create-a-local-yum-repository-using-an-iso">🛠️ How to Create a Local YUM Repository Using an ISO</h2>
+<p>This guide explains how to set up a local YUM repository from an ISO file on RHEL, CentOS, AlmaLinux, or Rocky Linux.</p>
+<hr>
+<h2 id="-1-mount-the-iso-file">📥 1. Mount the ISO File</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p /mnt/iso
+</span></span><span style="display:flex;"><span>mount -o loop /dev/sr0 /mnt/iso</span></span></code></pre></div>
+<h2 id="-2-copy-iso-contents-optional-but-recommended">📂 2. Copy ISO Contents (Optional but Recommended)</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -p /var/www/html/yumrepo
+</span></span><span style="display:flex;"><span>cp -av /mnt/iso/* /var/www/html/yumrepo/
+</span></span><span style="display:flex;"><span>umount /mnt/iso</span></span></code></pre></div>
+<blockquote>
+<p>This step ensures the repository is persistent across reboots.</p>
+</blockquote>
+<hr>
+<h2 id="-3-create-the-local-repo-file">📝 3. Create the Local Repo File</h2>
+<p>Create a new file <code>/etc/yum.repos.d/local.repo</code> with the following content:</p>
+<h3 id="-if-you-copied-the-iso-contents">✅ If you copied the ISO contents:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[LocalRepo]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">Local Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">baseurl</span><span style="color:#f92672">=</span><span style="color:#e6db74">file:///var/www/html/yumrepo</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gpgcheck</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span></span></span></code></pre></div>
+<h3 id="-if-using-the-iso-directly-without-copying">🔁 If using the ISO directly (without copying):</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[LocalRepo]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">Local Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">baseurl</span><span style="color:#f92672">=</span><span style="color:#e6db74">file:///mnt/iso</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gpgcheck</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span></span></span></code></pre></div>
+<ul>
+<li><strong>Example is given below:</strong></li>
+</ul>
+<h2 id="vmimagesyumpng"><a href="#R-image-21765f524d96b87dd7985892e1143011" class="lightbox-link"><img alt="VM" class="noborder lazy lightbox noshadow figure-image" loading="lazy" src="../images/yum.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-21765f524d96b87dd7985892e1143011"><img alt="VM" class="noborder lazy lightbox noshadow lightbox-image" loading="lazy" src="../images/yum.png"></a></h2>
+<h2 id="-4-clean-yum-and-check-the-repository">🔄 4. Clean YUM and Check the Repository</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yum clean all
+</span></span><span style="display:flex;"><span>yum repolist</span></span></code></pre></div>
+<p>You should now see <code>LocalRepo</code> listed in the repository list.</p>
+<hr>
+<h2 id="-5-optional-serve-the-repo-via-http">🌐 5. (Optional) Serve the Repo via HTTP</h2>
+<p>This is useful if you want to share the repo with other machines.</p>
+<h3 id="install-apache">Install Apache:</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yum install -y httpd
+</span></span><span style="display:flex;"><span>systemctl enable --now httpd</span></span></code></pre></div>
+<h3 id="allow-apache-access-with-selinux-if-enabled">Allow Apache Access with SELinux (if enabled):</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chcon -R -t httpd_sys_content_t /var/www/html/yumrepo</span></span></code></pre></div>
+<h3 id="update-the-repo-file">Update the Repo File:</h3>
+<p>Edit <code>/etc/yum.repos.d/local.repo</code> to use HTTP:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ini" data-lang="ini"><span style="display:flex;"><span><span style="color:#66d9ef">[LocalRepo]</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">Local Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">baseurl</span><span style="color:#f92672">=</span><span style="color:#e6db74">http://localhost/yumrepo</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">enabled</span><span style="color:#f92672">=</span><span style="color:#e6db74">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">gpgcheck</span><span style="color:#f92672">=</span><span style="color:#e6db74">0</span></span></span></code></pre></div>
+<hr>
+<h2 id="-done">✅ Done!</h2>
+<p>You now have a local YUM repository set up using an ISO image. You can use it offline, or serve it to multiple machines via HTTP.</p>
 <h2 id="-linux-monitoring">📊 Linux Monitoring</h2>
 <p>Monitoring Linux is critical for performance tuning, capacity planning, and troubleshooting. Below are essential CLI tools for real-time and historical system monitoring.</p>
 <hr>
@@ -501,7 +575,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1748183144";
+          window.index_js_url="../searchindex.en.js?1748692953";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -514,12 +588,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.min.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1748183144" defer></script>
-        <script src="../js/search.js?1748183144" defer></script>
+        <script src="../js/auto-complete.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.min.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1748692953" defer></script>
+        <script src="../js/search.js?1748692953" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -593,8 +667,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1748183144" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1748183144" defer></script>
-    <script src="../js/theme.js?1748183144" defer></script>
+    <script src="../js/clipboard.min.js?1748692953" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1748692953" defer></script>
+    <script src="../js/theme.js?1748692953" defer></script>
   </body>
 </html>

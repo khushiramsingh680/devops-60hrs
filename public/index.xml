@@ -33,7 +33,7 @@
       <link>https://github.com/khushiramsingh680/devops-60hrs/part04/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/khushiramsingh680/devops-60hrs/part04/index.html</guid>
-      <description>Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission)&#xA;Log into the Vagrant virtual machine using the default SSH private key.&#xA;.vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.&#xA;Login to 3rd server but private key is on 1st server</description>
+      <description>Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usage( to control the default permission)&#xA;Log into the Vagrant virtual machine using the default SSH private key.&#xA;.vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.&#xA;Login to 3rd server but private key is on 1st server</description>
     </item>
     <item>
       <title>Linux Package Management: Day 05</title>

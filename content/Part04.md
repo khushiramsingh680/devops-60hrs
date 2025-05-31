@@ -15,7 +15,7 @@ weight = 4
 - **[Loging Overview](#-rhel-8-logging-overview)**
 
 ## Recap
-- [ ] Umask usgae( to control the default permission)
+- [ ] Umask usage( to control the default permission)
 - [ ] Log into the Vagrant virtual machine using the default SSH private key.
   ```ruby
   .vagrant/machines/<machine-name>/<provider>/private_key
@@ -201,7 +201,10 @@ sudo fsck /dev/sdX1
 - **Striping and Mirroring**: LVM supports RAID-like features such as striping (for performance) and mirroring (for redundancy).
 
 Now that we have a basic understanding of LVM, let’s look at some common **LVM commands** used to manage storage volumes.
-
+## Install LVM if commands are not available 
+```bash
+yum install lvm2
+```
 ## 🔒 LVM Commands
 
 ### 1️⃣ **List Physical Volumes (PV)**
@@ -311,12 +314,6 @@ Launches the interactive LVM command-line interface.
 lvm pvscan
 ```
 Scans for physical volumes and shows details about their status.
-
-### 1️⃣9️⃣ **Create a Snapshot of a Logical Volume**
-```bash
-lvcreate -L 1G -s -n lv_snapshot /dev/vg_name/lv_name
-```
-Creates a snapshot of a logical volume, which can be used for backup purposes.
 
 ### 2️⃣0️⃣ **Activate a Volume Group**
 ```bash

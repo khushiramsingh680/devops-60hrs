@@ -5,21 +5,21 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.139.3">
     <meta name="generator" content="Relearn 7.2.1+f1701957c30daae7cd133bec5a7968480563ce9f">
-    <meta name="description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission)
+    <meta name="description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usage( to control the default permission)
 Log into the Vagrant virtual machine using the default SSH private key.
 .vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.
 Login to 3rd server but private key is on 1st server">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Linux Disk Management: Day 04 :: Devops 60 hrs">
-    <meta name="twitter:description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission)
+    <meta name="twitter:description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usage( to control the default permission)
 Log into the Vagrant virtual machine using the default SSH private key.
 .vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.
 Login to 3rd server but private key is on 1st server">
     <meta property="og:url" content="https://github.com/khushiramsingh680/devops-60hrs/part04/index.html">
     <meta property="og:site_name" content="Devops 60 hrs">
     <meta property="og:title" content="Linux Disk Management: Day 04 :: Devops 60 hrs">
-    <meta property="og:description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission)
+    <meta property="og:description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usage( to control the default permission)
 Log into the Vagrant virtual machine using the default SSH private key.
 .vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.
 Login to 3rd server but private key is on 1st server">
@@ -27,17 +27,17 @@ Login to 3rd server but private key is on 1st server">
     <meta property="og:type" content="article">
     <meta property="article:section" content="Devops 60 hrs">
     <meta itemprop="name" content="Linux Disk Management: Day 04 :: Devops 60 hrs">
-    <meta itemprop="description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usgae( to control the default permission)
+    <meta itemprop="description" content="Topics Recap Checking Exisitng disk Partiotion a Disk Mounting a disk after format Introduction to LVM Swap Partition Loging Overview Recap Umask usage( to control the default permission)
 Log into the Vagrant virtual machine using the default SSH private key.
 .vagrant/machines/&lt;machine-name&gt;/&lt;provider&gt;/private_key ssh -i &lt;privatekey&gt; &lt;user-name&gt;/ip Convert the private key .pem file into ppk to login with putty.
 Login to 3rd server but private key is on 1st server">
-    <meta itemprop="wordCount" content="1802">
+    <meta itemprop="wordCount" content="1783">
     <title>Linux Disk Management: Day 04 :: Devops 60 hrs</title>
-    <link href="../css/fontawesome-all.min.css?1748183144" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1748183144" rel="stylesheet"></noscript>
-    <link href="../css/auto-complete.css?1748183144" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1748183144" rel="stylesheet"></noscript>
-    <link href="../css/perfect-scrollbar.min.css?1748183144" rel="stylesheet">
-    <link href="../css/theme.min.css?1748183144" rel="stylesheet">
-    <link href="../css/format-html.min.css?1748183144" rel="stylesheet" id="R-format-style">
+    <link href="../css/fontawesome-all.min.css?1748692953" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/fontawesome-all.min.css?1748692953" rel="stylesheet"></noscript>
+    <link href="../css/auto-complete.css?1748692953" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../css/auto-complete.css?1748692953" rel="stylesheet"></noscript>
+    <link href="../css/perfect-scrollbar.min.css?1748692953" rel="stylesheet">
+    <link href="../css/theme.min.css?1748692953" rel="stylesheet">
+    <link href="../css/format-html.min.css?1748692953" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..';
@@ -145,6 +145,7 @@ Login to 3rd server but private key is on 1st server">
         <li><a href="#advantages-of-lvm">Advantages of LVM:</a></li>
       </ul>
     </li>
+    <li><a href="#install-lvm-if-commands-are-not-available">Install LVM if commands are not available</a></li>
     <li><a href="#-lvm-commands">🔒 LVM Commands</a>
       <ul>
         <li><a href="#1-list-physical-volumes-pv">1️⃣ <strong>List Physical Volumes (PV)</strong></a></li>
@@ -165,7 +166,6 @@ Login to 3rd server but private key is on 1st server">
         <li><a href="#16-remove-a-physical-volume">1️⃣6️⃣ <strong>Remove a Physical Volume</strong></a></li>
         <li><a href="#17-list-all-available-lvm-commands">1️⃣7️⃣ <strong>List All Available LVM Commands</strong></a></li>
         <li><a href="#18-display-lvm-system-information">1️⃣8️⃣ <strong>Display LVM System Information</strong></a></li>
-        <li><a href="#19-create-a-snapshot-of-a-logical-volume">1️⃣9️⃣ <strong>Create a Snapshot of a Logical Volume</strong></a></li>
         <li><a href="#20-activate-a-volume-group">2️⃣0️⃣ <strong>Activate a Volume Group</strong></a></li>
         <li><a href="#21-deactivate-a-volume-group">2️⃣1️⃣ <strong>Deactivate a Volume Group</strong></a></li>
       </ul>
@@ -251,7 +251,7 @@ Login to 3rd server but private key is on 1st server">
 <h2 id="recap">Recap</h2>
 <ul>
 <li>
-<p><input disabled="" type="checkbox"> Umask usgae( to control the default permission)</p>
+<p><input disabled="" type="checkbox"> Umask usage( to control the default permission)</p>
 </li>
 <li>
 <p><input disabled="" type="checkbox"> Log into the Vagrant virtual machine using the default SSH private key.</p>
@@ -367,6 +367,8 @@ Login to 3rd server but private key is on 1st server">
 <li><strong>Striping and Mirroring</strong>: LVM supports RAID-like features such as striping (for performance) and mirroring (for redundancy).</li>
 </ul>
 <p>Now that we have a basic understanding of LVM, let’s look at some common <strong>LVM commands</strong> used to manage storage volumes.</p>
+<h2 id="install-lvm-if-commands-are-not-available">Install LVM if commands are not available</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yum install lvm2</span></span></code></pre></div>
 <h2 id="-lvm-commands">🔒 LVM Commands</h2>
 <h3 id="1-list-physical-volumes-pv">1️⃣ <strong>List Physical Volumes (PV)</strong></h3>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pvs</span></span></code></pre></div>
@@ -422,9 +424,6 @@ Login to 3rd server but private key is on 1st server">
 <h3 id="18-display-lvm-system-information">1️⃣8️⃣ <strong>Display LVM System Information</strong></h3>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvm pvscan</span></span></code></pre></div>
 <p>Scans for physical volumes and shows details about their status.</p>
-<h3 id="19-create-a-snapshot-of-a-logical-volume">1️⃣9️⃣ <strong>Create a Snapshot of a Logical Volume</strong></h3>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lvcreate -L 1G -s -n lv_snapshot /dev/vg_name/lv_name</span></span></code></pre></div>
-<p>Creates a snapshot of a logical volume, which can be used for backup purposes.</p>
 <h3 id="20-activate-a-volume-group">2️⃣0️⃣ <strong>Activate a Volume Group</strong></h3>
 <div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vgchange -ay vg_name</span></span></code></pre></div>
 <p>Activates the specified volume group, making it available for use.</p>
@@ -558,7 +557,7 @@ Devops 60 hrs
           </a>
         </div>
         <script>
-          window.index_js_url="../searchindex.en.js?1748183144";
+          window.index_js_url="../searchindex.en.js?1748692953";
         </script>
         <search><form action="../search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -571,12 +570,12 @@ Devops 60 hrs
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="../js/auto-complete.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.min.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.stemmer.support.min.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.multi.min.js?1748183144" defer></script>
-        <script src="../js/lunr/lunr.en.min.js?1748183144" defer></script>
-        <script src="../js/search.js?1748183144" defer></script>
+        <script src="../js/auto-complete.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.min.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.stemmer.support.min.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.multi.min.js?1748692953" defer></script>
+        <script src="../js/lunr/lunr.en.min.js?1748692953" defer></script>
+        <script src="../js/search.js?1748692953" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -650,8 +649,8 @@ Devops 60 hrs
         </div>
       </div>
     </aside>
-    <script src="../js/clipboard.min.js?1748183144" defer></script>
-    <script src="../js/perfect-scrollbar.min.js?1748183144" defer></script>
-    <script src="../js/theme.js?1748183144" defer></script>
+    <script src="../js/clipboard.min.js?1748692953" defer></script>
+    <script src="../js/perfect-scrollbar.min.js?1748692953" defer></script>
+    <script src="../js/theme.js?1748692953" defer></script>
   </body>
 </html>
